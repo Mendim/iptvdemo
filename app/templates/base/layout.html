@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        
+        {% block title %}
+        {% endblock title %}
+
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='cdn/images/favicon.ico') }}">
+        {% block css %}
+        {% endblock %}
+
+    </head>
+    
+    <body class="skin-blue">
+
+        {% include 'base/header.html' with context %}
+
+        <div class="wrapper row-offcanvas row-offcanvas-left">
+        
+            {% block leftside %}
+            {% endblock %}
+
+            <!-- right-side -->
+            <aside class="right-side">
+
+            {% block rightside %}
+            {% include 'base/rightside.html' with context %}
+            {% endblock %}
+
+            {% block content %}
+            {% endblock %}
+
+            </aside>
+            <!-- /.right-side -->
+        </div>
+
+        {% block js %}
+        {% endblock js %}
+
+    </body>
+
+</html>
