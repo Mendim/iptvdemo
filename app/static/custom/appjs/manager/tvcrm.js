@@ -288,9 +288,9 @@ $(function() {
         "destroy": true,
         "columns": [
             { "title": "排名", "class": "center" },
-            { "title": "名称",  "class": "center" },
-            { "title": "频道",  "class": "center" },
-            { "title": "类别",  "class": "center" },
+            { "title": "节目名称",  "class": "center" },
+            { "title": "播出频道",  "class": "center" },
+            { "title": "节目分类",  "class": "center" },
             { "title": "收视率",  "class": "center" },
             { "title": "市场份额",  "class": "center" }
         ],
