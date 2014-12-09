@@ -10,6 +10,18 @@ def index():
     return render_template('manager/pages/main.html',
         content_title='收视概况')
 
+@managerView.route('/tvcrm/')
+@managerView.route('/tvcrm/<int:tv_id>')
+@login_required
+def tvcrm(tv_id=None):
+    if tv_id == 1:
+        return render_template('manager/pages/room_detail.html',
+            content_title='石家庄金石机房',
+            web_3d_url = "#")
+
+    return render_template('manager/pages/tvcrm.html',
+            content_title='收视率分析')
+
 
 @managerView.route('/room/')
 @managerView.route('/room/<int:room_name>')
