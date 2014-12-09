@@ -5,6 +5,6 @@ from flask import Flask
 app = Flask(__name__)
 app.config.from_object('config')
 
-from .views import managerView
+from .views import mainView
 
-app.register_blueprint(managerView, url_prefix='/manager')
+app.register_blueprint(mainView, url_prefix='/main')

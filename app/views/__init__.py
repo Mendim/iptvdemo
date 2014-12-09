@@ -3,7 +3,7 @@ from app import app
 from app.models import User
 from flask import render_template, redirect, url_for, request, g
 from flask.ext.login import LoginManager, login_user, logout_user, current_user
-from .manager import managerView
+from .main import mainView
 
 
 login_manager = LoginManager()

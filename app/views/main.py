@@ -2,46 +2,46 @@
 from flask import render_template,  Blueprint, request, abort
 from flask.ext.login import login_required
 
-managerView = Blueprint('manager', __name__)
+mainView = Blueprint('main', __name__)
 
-@managerView.route('/')
+@mainView.route('/')
 @login_required
 def index():
-    return render_template('manager/pages/main.html',
+    return render_template('main/pages/main.html',
         content_title='收视概况')
 
-@managerView.route('/tvcrm/')
-@managerView.route('/tvcrm/<int:tv_id>')
+@mainView.route('/tvcrm/')
+@mainView.route('/tvcrm/<int:tv_id>')
 @login_required
 def tvcrm(tv_id=None):
     if tv_id == 1:
-        return render_template('manager/pages/room_detail.html',
+        return render_template('main/pages/room_detail.html',
             content_title='石家庄金石机房',
             web_3d_url = "#")
 
-    return render_template('manager/pages/tvcrm.html',
+    return render_template('main/pages/tvcrm.html',
             content_title='收视率分析')
 
 
-@managerView.route('/room/')
-@managerView.route('/room/<int:room_name>')
+@mainView.route('/room/')
+@mainView.route('/room/<int:room_name>')
 @login_required
 def room(room_name=None):
     if room_name == 1:
-        return render_template('manager/pages/room_detail.html',
+        return render_template('main/pages/room_detail.html',
             content_title='石家庄金石机房',
             web_3d_url = "#")
 
-    return render_template('manager/pages/room.html',
+    return render_template('main/pages/room.html',
             content_title='机房资源统计')
 
-@managerView.route('/flow/')
+@mainView.route('/flow/')
 @login_required
 def flow():
-    return render_template('manager/pages/flow.html',
+    return render_template('main/pages/flow.html',
             content_title='流量核算')
 
-@managerView.route('/port/', methods=['GET'])
+@mainView.route('/port/', methods=['GET'])
 @login_required
 def port():
     try:
@@ -51,33 +51,33 @@ def port():
     except:
         return abort(404)
 
-    return render_template('manager/pages/port.html',
+    return render_template('main/pages/port.html',
             port_name = port_name,
             dev_name = dev_name,
             month_value = month_value,
             content_title='端口详情')
 
-@managerView.route('/business/')
+@mainView.route('/business/')
 @login_required
 def business():
-    return render_template('manager/pages/business.html',
+    return render_template('main/pages/business.html',
             content_title='收入评估')
 
 
-@managerView.route('/customer/')
+@mainView.route('/customer/')
 @login_required
 def customer():
-    return render_template('manager/pages/customer.html',
+    return render_template('main/pages/customer.html',
             content_title='客户评估')
 
-@managerView.route('/analyze-room/')
+@mainView.route('/analyze-room/')
 @login_required
 def analyze_room():
-    return render_template('manager/pages/analyze_room.html',
+    return render_template('main/pages/analyze_room.html',
             content_title='机房投资分析')
 
-@managerView.route('/analyze-business/')
+@mainView.route('/analyze-business/')
 @login_required
 def analyze_business():
-    return render_template('manager/pages/analyze_business.html',
+    return render_template('main/pages/analyze_business.html',
             content_title='业务投资分析')

@@ -1,4 +1,4 @@
-{% extends 'manager/layout.html' %}
+{% extends 'main/layout.html' %}
 
 {% block css %}
 {{ super() }}
@@ -154,6 +154,6 @@
 <script src="{{ url_for('static', filename='vendor/datatables/js/dataTables.bootstrap.js') }}" type="text/javascript"></script>
 
 <!-- page js -->
-<script src="{{ url_for('static', filename='custom/appjs/manager/tvcrm.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='custom/appjs/main/tvcrm.js') }}" type="text/javascript"></script>
 
 {% endblock %}
