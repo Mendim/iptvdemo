@@ -1,7 +1,6 @@
 # coding: utf-8
 from flask import render_template,  Blueprint, request, abort
 from flask.ext.login import login_required
-from app import app
 
 managerView = Blueprint('manager', __name__)
 
@@ -9,7 +8,7 @@ managerView = Blueprint('manager', __name__)
 @login_required
 def index():
     return render_template('manager/pages/main.html',
-        content_title='全省 IDC 概况')
+        content_title='收视概况')
 
 
 @managerView.route('/room/')
@@ -19,7 +18,7 @@ def room(room_name=None):
     if room_name == 1:
         return render_template('manager/pages/room_detail.html',
             content_title='石家庄金石机房',
-            web_3d_url = app.config['WEB_3D_URL'])
+            web_3d_url = "#")
 
     return render_template('manager/pages/room.html',
             content_title='机房资源统计')

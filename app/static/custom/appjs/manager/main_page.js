@@ -13,10 +13,10 @@ function returnStar(value) {
 $(function() {
     "use strict";
 
-    // 全省机房统计
-    var $roomTable = $("#room-table");
+    // 用户在线统计
+    var $onlineTable = $("#online-table");
 
-    $roomTable.dataTable({
+    $onlineTable.dataTable({
         "info" : false,
         "paging": true,
         "filter": false,
@@ -24,259 +24,65 @@ $(function() {
         "pageLength":8,
         "destroy": true,
         "columns": [
-            { "title": "#", "class": "center" },
-            { "title": "机房名称", "class": "center" },
-            { "title": "城市", "class": "center" },
-            { "title": "机柜总量", "class": "center" },
-            { "title": "带宽总量", "class": "center" },
-            { "title": "增值业务", "class": "center", "orderable": false }
+            { "title": "日期", "class": "center" },
+            { "title": "00~04时 (万人)",  "class": "center" },
+            { "title": "04~08时 (万人)",  "class": "center" },
+            { "title": "08~12时 (万人)",  "class": "center" },
+            { "title": "12~16时 (万人)", "class": "center" },
+            { "title": "16~20时 (万人)", "class": "center" },
+            { "title": "20~24时 (万人)", "class": "center" }
         ],
         "data": [
-            ["1", "金石", "石家庄", "410", "40G",returnStar(4)],
-            ["2", "鹿泉","石家庄", "1265", "220G", returnStar(3)],
-            ["3", "二枢纽","石家庄", "762", "120G", returnStar(4)],
-            ["4", "A机房","保定", "163", "40G", returnStar(2)],
-            ["5", "B机房","保定", "256", "80G", returnStar(3)],
-            ["6", "C机房","保定", "855", "60G", returnStar(3)],
-            ["7", "A机房","唐山", "245", "100G", returnStar(4)],
-            ["8", "B机房","唐山", "726", "90G", returnStar(5)],
-            ["9", "C机房","唐山", "655", "60G", returnStar(3)],
-            ["10", "A机房","邯郸", "245", "100G", returnStar(4)],
-            ["11", "B机房","邯郸", "726", "90G", returnStar(5)],
-            ["12", "C机房","邯郸", "655", "60G", returnStar(3)],
-            ["13", "A机房","张家口", "163", "40G", returnStar(2)],
-            ["15", "B机房","张家口", "256", "80G", returnStar(3)],
-            ["16", "C机房","张家口", "855", "60G", returnStar(3)],
-            ["17", "A机房","承德", "245", "100G", returnStar(4)],
-            ["18", "B机房","承德", "726", "90G", returnStar(5)],
-            ["19", "C机房","承德", "655", "60G", returnStar(3)],
-            ["20", "D机房","承德", "655", "60G", returnStar(3)],
-            ["21", "A机房","沧州", "163", "40G", returnStar(2)],
-            ["22", "B机房","沧州", "256", "80G", returnStar(3)],
-            ["23", "C机房","沧州", "855", "60G", returnStar(3)],
-            ["24", "D机房","沧州", "245", "100G", returnStar(4)],
-            ["25", "E机房","沧州", "726", "90G", returnStar(5)]
+            ["11/01/14", 14.9, 19.6, 16.5, 18.6, 21.2, 27.7],
+            ["11/02/14", 15.3, 19.2, 18.5, 18.6, 22.4, 28.5],
+            ["11/03/14", 14.2, 18.9, 16.6, 18.6, 21.6, 28.0],
+            ["11/04/14", 13.9, 15.6, 16.9, 18.6, 19.7, 27.3],
+            ["11/05/14", 15.5, 16.5, 17.3, 18.6, 20.7, 26.9],
+            ["11/06/14", 15.1, 16.0, 17.0, 18.6, 21.7, 29.7],
+            ["11/07/14", 14.1, 17.0, 18.4, 18.6, 21.1, 28.2],
+            ["11/08/14", 14.0, 19.7, 17.1, 18.6, 21.8, 27.8],
+            ["11/09/14", 16.0, 16.5, 16.4, 18.6, 19.8, 26.9],
+            ["11/10/14", 15.1, 17.8, 18.4, 18.6, 22.3, 29.1],
+            ["11/11/14", 14.4, 19.4, 17.1, 18.6, 21.5, 27.1],
+            ["11/12/14", 16.6, 17.3, 17.6, 18.6, 21.4, 29.1],
+            ["11/13/14", 14.0, 18.2, 16.5, 18.6, 21.7, 27.6],
+            ["11/14/14", 16.1, 19.2, 18.2, 18.6, 20.2, 27.7],
+            ["11/15/14", 14.5, 18.9, 18.0, 18.6, 21.5, 26.9],
+            ["11/16/14", 14.8, 16.8, 18.5, 18.6, 19.6, 27.4],
+            ["11/17/14", 13.6, 17.7, 18.8, 18.6, 22.2, 28.7],
+            ["11/18/14", 14.1, 18.3, 17.5, 18.6, 22.3, 27.9],
+            ["11/19/14", 15.8, 16.5, 16.5, 18.6, 22.5, 28.2],
+            ["11/20/14", 14.5, 18.5, 17.9, 18.6, 22.4, 28.4],
+            ["11/21/14", 14.1, 18.3, 18.0, 18.6, 20.2, 28.5],
+            ["11/22/14", 15.0, 18.0, 17.1, 18.6, 21.9, 26.7],
+            ["11/23/14", 14.6, 17.6, 17.9, 18.6, 20.2, 28.3],
+            ["11/24/14", 15.3, 17.2, 17.5, 18.6, 21.3, 27.2],
+            ["11/25/14", 14.9, 17.4, 16.8, 18.6, 22.7, 27.9],
+            ["11/26/14", 14.7, 18.7, 17.5, 18.6, 22.0, 27.0],
+            ["11/27/14", 16.7, 19.0, 17.2, 18.6, 21.9, 28.3],
+            ["11/28/14", 13.6, 16.6, 17.2, 18.6, 21.5, 29.5],
+            ["11/29/14", 16.4, 18.3, 17.6, 18.6, 22.2, 29.4],
+            ["11/30/14", 15.6, 19.6, 18.3, 18.6, 21.1, 28.2]
         ]
     });
 
-    // 全省收入统计
-    var $incomeTable = $("#income-table");
+    var $onlineChart1 = $('#online-chart1');
+    var $onlineChart2 = $('#online-chart2');
 
-    $incomeTable.dataTable({
-        "info" : false,
-        "paging": true,
-        "filter": false,
-        "lengthChange": false,
-        "pageLength":8,
-        "destroy": true,
-        "columns": [
-            { "title": "#", "class": "center" },
-            { "title": "业务名称", "class": "center" },
-            { "title": "4月（万）", "class": "center" },
-            { "title": "5月（万）", "class": "center" },
-            { "title": "6月（万）", "class": "center" },
-            { "title": "7月（万）", "class": "center" },
-            { "title": "8月（万）", "class": "center" }
-        ],
-        "data": [
-            ["1", "机柜租用",  125.1, 116.3, 109.2, 123.2, 123.5],
-            ["2", "带宽租用", 275.6, 292.7, 306.2, 312.5, 316.4],
-            ["3", "DDOS 流量清洗", 58.5, 59.9, 63.2, 68.4, 72.4],
-            ["4", "压力测试服务", 16.5, 15.9, 17.1, 18.6, 17.9],
-            ["5", "云计算服务", 88.5, 91.9, 95.2, 87.0, 96.4],
-            ["6", "网站安全测试", 28.5, 21.9, 25.2, 23.4, 26.4]
-        ]
-    });
-
-    var $roomChart1 = $('#room-chart1');
-    var $roomChart2 = $('#room-chart2');
-
-    $roomChart1.highcharts({
+    $onlineChart1.highcharts({
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
             plotShadow: false
         },
         title: {
-            text: '全省机柜总量'
-        },
-        tooltip: {
-            pointFormat: '机柜总量: <b>{point.y}</b><br/>{series.name}: <b>{point.percentage:.1f}%</b>'
-        },
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: false
-                },
-                showInLegend: true
-            }
-        },
-        series: [{
-            type: 'pie',
-            name: '机柜总量',
-            data: [
-                ['鹿泉', 1265],
-                ['二枢纽', 762],
-                {
-                    name: '金石',
-                    y: 410,
-                    sliced: true,
-                    selected: true
-                },
-                ['保定 A', 1563],
-                ['唐山 A', 1245],
-                ['其他机房', 2726]
-            ]
-        }]
-    });
-
-    $roomChart2.highcharts({
-        chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: false
-        },
-        title: {
-            text: '全省机柜租用量'
-        },
-        tooltip: {
-            pointFormat: '机柜租用量: <b>{point.y}</b><br/>{series.name}: <b>{point.percentage:.1f}%</b>'
-        },
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: false
-                },
-                showInLegend: true
-            }
-        },
-        series: [{
-            type: 'pie',
-            name: '机柜租用量',
-            innerSize: '65%',
-            data: [
-                ['鹿泉', 563],
-                ['二枢纽', 435],
-                {
-                    name: '金石',
-                    y: 220,
-                    sliced: true,
-                    selected: true
-                },
-                ['保定 A', 940],
-                ['唐山 A', 876],
-                ['其他机房', 1573]
-            ]
-        }]
-    });
-
-    var $bandChart1 = $('#band-chart1');
-    var $bandChart2 = $('#band-chart2');
-
-    $bandChart1.highcharts({
-        chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: false
-        },
-        title: {
-            text: '全省带宽总量'
-        },
-        tooltip: {
-            pointFormat: '带宽总量: <b>{point.y} GB</b><br/>{series.name}: <b>{point.percentage:.1f}%</b>'
-        },
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: false
-                },
-                showInLegend: true
-            }
-        },
-        series: [{
-            type: 'pie',
-            name: '带宽总量',
-            data: [
-                ['鹿泉', 120],
-                ['二枢纽', 60],
-                {
-                    name: '金石',
-                    y: 25,
-                    sliced: true,
-                    selected: true
-                },
-                ['保定', 140],
-                ['唐山', 210],
-                ['其他', 420]
-            ]
-        }]
-    });
-
-    $bandChart2.highcharts({
-        chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: false
-        },
-        title: {
-            text: '全省带宽租用量'
-        },
-        tooltip: {
-            pointFormat: '带宽租用量: <b>{point.y} GB</b><br/>{series.name}: <b>{point.percentage:.1f}%</b>'
-        },
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: false
-                },
-                showInLegend: true
-            }
-        },
-        series: [{
-            type: 'pie',
-            name: '带宽租用量',
-            innerSize: '65%',
-            data: [
-                ['鹿泉', 220],
-                ['二枢纽', 120],
-                {
-                    name: '金石',
-                    y: 40,
-                    sliced: true,
-                    selected: true
-                },
-                ['保定', 340],
-                ['唐山', 500],
-                ['其他', 700]
-            ]
-        }]
-    });
-
-    var $incomeChart1 = $('#income-chart1');
-    var $incomeChart2 = $('#income-chart2');
-
-    $incomeChart1.highcharts({
-        chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: false
-        },
-        title: {
-            text: '各项业务收入占比'
+            text: '在线人数分布'
         },
         subtitle: {
-            text: '2014年8月'
+            text: '2014年 11月'
         },
         tooltip: {
-            pointFormat: '收入总计: <b>{point.y} 万元</b><br/>{series.name}: <b>{point.percentage:.1f}%</b>'
+            pointFormat: '在线人数: <b>{point.y} 万</b><br/>{series.name}: <b>{point.percentage:.1f} %</b>'
         },
         plotOptions: {
             pie: {
@@ -290,37 +96,37 @@ $(function() {
         },
         series: [{
             type: 'pie',
-            name: '收入占比',
-            innerSize: '45%',
+            name: '人数占比',
+            innerSize: '35%',
             data: [
-                ['压力测试', 16.4],
-                ['带宽租用', 316.4],
+                ['00 ~ 04 时', 16.4],
+                ['04 ~ 08 时', 9.4],
                 {
-                    name: 'DDOS',
-                    y: 72.4,
+                    name: '08 ~ 12 时',
+                    y: 15.4,
                     sliced: true,
                     selected: true
                 },
-                ['机柜租用', 123.5],
-                ['云计算', 96.4],
-                ['网站安全', 26.4]
+                ['12 ~ 16 时', 12.4],
+                ['16 ~ 20 时', 18.5],
+                ['20 ~ 24 时', 22.6]
             ]
         }]
     });
 
-    $incomeChart2.highcharts({
+    $onlineChart2.highcharts({
         title: {
-            text: '各项业务收入总计'
+            text: '用户在线趋势'
         },
         subtitle: {
-            text: '2014财年'
+            text: '2014年 11月'
         },
         xAxis: {
-            categories: ['1月','2月','3月','4月','5月','6月','7月','8月']
+            categories: ['01','04','07','10','13','16','19','22','25','28','30']
         },
         yAxis: {
             title: {
-                text: '收入（万）'
+                text: '在线用户（万）'
             },
             plotLines: [{
                 value: 0,
@@ -332,30 +138,174 @@ $(function() {
             valueSuffix: '（万）'
         },
         legend: {
-//            layout: 'vertical',
             align: 'center',
-//            verticalAlign: 'middle',
             borderWidth: 0
         },
         series: [{
-            name: '机柜租用',
-            data: [103.2, 106.3, 113.5, 125.1, 116.3, 109.2, 123.2, 123.5]
+            name: '00 ~ 04 时',
+            data: [15.7, 13.8, 15.9, 15.0, 16.7, 14.3, 14.0, 14.0, 14.4, 13.6, 15.0]
         }, {
-            name: '带宽租用',
-            data: [285.7, 293.2, 305.3, 275.6, 292.7, 306.2, 312.5, 316.4]
+            name: '04 ~ 08 时',
+            data: [15.8, 19.5, 16.7, 15.7, 18.3, 18.1, 19.6, 17.9, 19.5, 16.7, 17.7]
         }, {
-            name: '压力测试服务',
-            data: [17.4, 16.5, 15.8, 16.5, 15.9, 17.1, 18.6, 17.9]
+            name: '08 ~ 12 时',
+            data: [16.6, 16.9, 18.5, 17.7, 17.3, 18.1, 16.6, 17.7, 18.3, 18.7, 17.2]
         }, {
-            name: '云计算服务',
-            data: [83.4, 92.6, 85.3, 88.5, 91.9, 95.2, 87.0, 96.4]
+            name: '12 ~ 16 时',
+            data: [21.6, 21.3, 22.7, 21.3, 19.8, 19.7, 22.6, 21.2, 20.4, 22.2, 19.6]
         },{
-            name: '网站安全测试',
-            data: [23.4, 24.2, 25.7, 28.5, 21.9, 25.2, 23.4, 26.4]
+            name: '16 ~ 20 时',
+            data: [25.0, 25.4, 26.8, 27.3, 24.2, 25.1, 25.6, 26.3, 27.5, 23.4, 25.0]
         },{
-            name: 'DDOS',
-            data: [21.4, 34.2, 45.7, 58.5, 59.9, 63.2, 68.4, 72.4]
+            name: '20 ~ 24 时',
+            data: [28.7, 28.3, 26.5, 29.1, 29.1, 26.7, 27.4, 29.3, 28.2, 27.2, 28.7]
         }]
     });
+
+    // 节目收视统计
+    var $tvTable = $("#tv-table");
+
+    $tvTable.dataTable({
+        "info" : false,
+        "paging": true,
+        "filter": false,
+        "lengthChange": false,
+        "pageLength":8,
+        "destroy": true,
+        "columns": [
+            { "title": "日期", "class": "center" },
+            { "title": "新闻 (小时)",  "class": "center" },
+            { "title": "综艺 (小时)",  "class": "center" },
+            { "title": "电视 (小时)",  "class": "center" },
+            { "title": "电影 (小时)", "class": "center" },
+            { "title": "体育 (小时)", "class": "center" },
+            { "title": "其他 (小时)", "class": "center" }
+        ],
+        "data": [
+            ["11/01/14", 1.9, 1.6, 2.5, 1.6, 0.2, 1.7],
+            ["11/02/14", 1.3, 1.2, 2.5, 1.6, 0.4, 1.5],
+            ["11/03/14", 1.2, 1.9, 2.6, 1.6, 0.6, 1.0],
+            ["11/04/14", 1.9, 1.6, 2.9, 1.6, 0.7, 1.3],
+            ["11/05/14", 1.5, 1.5, 2.3, 1.6, 0.7, 1.9],
+            ["11/06/14", 1.1, 1.0, 2.0, 1.6, 0.7, 1.7],
+            ["11/07/14", 1.1, 1.0, 2.4, 1.6, 0.1, 1.2],
+            ["11/08/14", 1.0, 1.7, 2.1, 1.6, 0.8, 1.8],
+            ["11/09/14", 1.0, 1.5, 2.4, 1.6, 0.8, 1.9],
+            ["11/10/14", 1.1, 1.8, 2.4, 1.6, 0.3, 1.1],
+            ["11/11/14", 1.4, 1.4, 2.1, 1.6, 0.5, 1.1],
+            ["11/12/14", 1.6, 1.3, 2.6, 1.6, 0.4, 1.1],
+            ["11/13/14", 1.0, 1.2, 2.5, 1.6, 0.7, 1.6],
+            ["11/14/14", 1.1, 1.2, 2.2, 1.6, 0.2, 1.7],
+            ["11/15/14", 1.5, 1.9, 2.0, 1.6, 0.5, 1.9],
+            ["11/16/14", 1.8, 1.8, 2.5, 1.6, 0.6, 1.4],
+            ["11/17/14", 1.6, 1.7, 2.8, 1.6, 0.2, 1.7],
+            ["11/18/14", 1.1, 1.3, 2.5, 1.6, 0.3, 1.9],
+            ["11/19/14", 1.8, 1.5, 2.5, 1.6, 0.5, 1.2],
+            ["11/20/14", 1.5, 1.5, 2.9, 1.6, 0.4, 1.4],
+            ["11/21/14", 1.1, 1.3, 2.0, 1.6, 0.2, 1.5],
+            ["11/22/14", 1.0, 1.0, 2.1, 1.6, 0.9, 1.7],
+            ["11/23/14", 1.6, 1.6, 2.9, 1.6, 0.2, 1.3],
+            ["11/24/14", 1.3, 1.2, 2.5, 1.6, 0.3, 1.2],
+            ["11/25/14", 1.9, 1.4, 2.8, 1.6, 0.7, 1.9],
+            ["11/26/14", 1.7, 1.7, 2.5, 1.6, 0.0, 1.0],
+            ["11/27/14", 1.7, 1.0, 2.2, 1.6, 0.9, 1.3],
+            ["11/28/14", 1.6, 1.6, 2.2, 1.6, 0.5, 1.5],
+            ["11/29/14", 1.4, 1.3, 2.6, 1.6, 0.2, 1.4],
+            ["11/30/14", 1.6, 1.6, 2.3, 1.6, 0.1, 1.2]
+        ]
+    });
+
+    var $tvChart1 = $('#tv-chart1');
+    var $tvChart2 = $('#tv-chart2');
+
+    $tvChart1.highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: '收视类型分布'
+        },
+        subtitle: {
+            text: '2014年 11月'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f} %</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: '节目占比',
+            data: [
+                ['新闻', 16.7],
+                ['综艺', 22.3],
+                {
+                    name: '电视剧',
+                    y: 25.6,
+                    sliced: true,
+                    selected: true
+                },
+                ['电影', 12.5],
+                ['体育', 10.8],
+                ['其他', 12.1]
+            ]
+        }]
+    });
+
+    $tvChart2.highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: '观看时长分布'
+        },
+        subtitle: {
+            text: '2014年 11月'
+        },
+        tooltip: {
+            pointFormat: '平均时长: <b>{point.y} 小时</b><br/>{series.name}: <b>{point.percentage:.1f} %</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: '总体占比',
+            innerSize: '65%',
+            data: [
+                ['新闻', 0.7],
+                ['综艺', 1.3],
+                {
+                    name: '电视剧',
+                    y: 2.6,
+                    sliced: true,
+                    selected: true
+                },
+                ['电影', 1.5],
+                ['体育', 0.8],
+                ['其他', 1.1]
+            ]
+        }]
+    });
+
 
 });
