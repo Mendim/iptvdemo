@@ -23,6 +23,12 @@ def user_analysis():
     return render_template('main/pages/user_analysis.html',
             content_title='用户在线统计')
 
+@mainView.route('/time_analysis/')
+@login_required
+def time_analysis():
+    return render_template('main/pages/time_analysis.html',
+            content_title='收视时长分析')
+
 
 @mainView.route('/room/')
 @mainView.route('/room/<int:room_name>')
