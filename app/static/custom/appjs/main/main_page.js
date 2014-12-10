@@ -1,15 +1,3 @@
-function returnStar(value) {
-    var starStr = "";
-    for(var i=1; i<= value; i++) {
-        starStr +=  "<i class='fa fa-star star'></i>";
-    }
-    for(;i<=5;i++){
-        starStr +=  "<i class='fa fa-star-o star'></i>";
-    }
-
-    return starStr;
-}
-
 $(function() {
     "use strict";
 

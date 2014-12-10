@@ -1,7 +1,7 @@
 $(function() {
     "use strict";
 
-    // 在线时长统计
+    // 全省用户观看时长统计
     var $timeTable = $("#time-table");
 
     $timeTable.dataTable({
@@ -54,54 +54,101 @@ $(function() {
         ]
     });
 
-    // 在线时长统计
-    var $timeChart = $('#time-chart');
+    // 全省用户观看时长统计
+    var $timeChart1 = $('#time-chart1');
 
-    $timeChart.highcharts({
+    $timeChart1.highcharts({
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
             plotShadow: false
         },
         title: {
-            text: '观看时长分布情况'
+            text: '全省观看时长分布'
         },
         subtitle: {
             text: '2014年 11月'
         },
         tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            pointFormat: '占比: <b>{point.percentage:.1f}%</b>'
         },
         plotOptions: {
             pie: {
                 allowPointSelect: true,
                 cursor: 'pointer',
                 dataLabels: {
-                    enabled: true,
-                    format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-                }
+                    enabled: false
+                },
+                showInLegend: true
             }
         },
         series: [{
             type: 'pie',
             name: '观看时长',
             data: [
-                ['0 ~ 0.5 小时',  9.7],
-                ['0.5 ~ 1 小时',  16.8],
+                ['0.0 ~ 0.5 小时',  9.7],
+                ['0.5 ~ 1.0 小时',  16.8],
                 {
-                    name: '1 ~ 2 小时',
+                    name: '1.0 ~ 2.0 小时',
                     y: 22.8,
                     sliced: true,
                     selected: true
                 },
-                ['2 ~ 3 小时', 28.5],
-                ['3 ~ 4 小时', 16.2],
-                ['4 小时以上',  16.0]
+                ['2.0 ~ 3.0 小时', 28.5],
+                ['3.0 ~ 4.0 小时', 16.2],
+                ['4.0 小时以上',  16.0]
             ]
         }]
     });
 
-    // 地域时长统计
+    var $timeChart2 = $('#time-chart2');
+
+    $timeChart2.highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: '全省观看时段分布'
+        },
+        subtitle: {
+            text: '2014年 11月'
+        },
+        tooltip: {
+            pointFormat: '在线人数: <b>{point.y} 万</b><br/>{series.name}: <b>{point.percentage:.1f} %</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: '人数占比',
+            innerSize: '65%',
+            data: [
+                ['00 ~ 04 点', 16.4],
+                ['04 ~ 08 点', 9.4],
+                {
+                    name: '08 ~ 12 点',
+                    y: 15.4,
+                    sliced: true,
+                    selected: true
+                },
+                ['12 ~ 16 点', 12.4],
+                ['16 ~ 20 点', 18.5],
+                ['20 ~ 24 点', 22.6]
+            ]
+        }]
+    });
+
+    // 地区平均观看时长统计
     var $areaTable = $("#area-table");
 
     $areaTable.dataTable({
@@ -135,24 +182,20 @@ $(function() {
     });
 
 
-    // 地域时长统计
+    // 地区平均观看时长统计
 
-    var $areaChartDom = document.getElementById('area-chart');
-    var $areaChart = echarts.init($areaChartDom);
-    var $areaChartOption = {
-        title: {
-            text : '地域时长统计',
-            subtext : '2014年 11月'
-        },
+    var $areaChartDom1 = document.getElementById('area-chart1');
+    var $areaChart1 = echarts.init($areaChartDom1);
+    var $areaChartOption1 = {
         tooltip : {
             trigger: 'item',
             formatter: '{b}<br/>{a}: {c} 小时'
         },
-        legend: {
-            orient: 'vertical',
-            x:'right',
-            data:['平均在线时长']
-        },
+        //legend: {
+        //    orient: 'vertical',
+        //    x:'right',
+        //    data:['平均观看时长']
+        //},
         dataRange: {
             min: 1,
             max: 3,
@@ -162,7 +205,7 @@ $(function() {
         },
         series : [
             {
-                name: '平均在线时长',
+                name: '平均观看时长',
                 type: 'map',
                 mapType: '甘肃',
                 selectedMode : 'single',
@@ -190,8 +233,39 @@ $(function() {
         ]
     };
 
-    $areaChart.setOption($areaChartOption);
+    $areaChart1.setOption($areaChartOption1);
 
+    var $areaChart2 = $("#area-chart2");
 
+    $areaChart2.highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: '全省各地市平均观看时长'
+        },
+        xAxis: {
+            categories: ['酒泉市','张掖市','武威市','陇南市','庆阳市','白银市','定西市',
+                '天水市','兰州市','平凉市','金昌市','嘉峪关市','临夏回族自治州','甘南藏族自治州']
+        },
+        yAxis: {
+            min: 1,
+            title: {
+                text: '观看时间 (小时)'
+            }
+        },
+         tooltip: {
+            pointFormat: '{series.name}: <b>{point.y}</b><br/>',
+            valueSuffix: ' 小时',
+            shared: true
+        },
+        legend: {
+            enabled: false
+        },
+        series: [{
+            name: '平均观看时长',
+            data: [1.5, 1.8, 2.1, 1.9, 1.3, 2.5, 1.7, 2.2, 1.1, 1.9, 1.4, 1.9, 1.7, 2.0]
 
+        }]
+    });
 });

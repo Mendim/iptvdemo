@@ -28,10 +28,10 @@
 <!-- Main content -->
 <section class="content">
 
-    <!-- 在线人数统计 -->
+    <!-- 用户观看时长统计 -->
     <div class="row">
         <div class="col-lg-12 col-md-12">
-            <!-- 在线人数统计 -->
+            <!-- 用户观看时长统计 -->
             <div class="box box-solid">
                 <!-- Custom tabs -->
                 <div class="nav-tabs-custom">
@@ -40,64 +40,78 @@
                         <li><a href="#time-pane" data-toggle="tab">
                             <span class="zh">时长总计</span></a>
                         </li>
-                        <li class="active"><a href="#time-chart" data-toggle="tab">
+                        <li class="active"><a href="#time-chart-group" data-toggle="tab">
                             <span class="zh">时长分布</span></a>
                         </li>
-                        <li class="pull-left header"><i class="fa fa-users"></i>
-                            <span class="zh">在线时长统计</span>
+                        <li class="pull-left header"><i class="fa fa-clock-o"></i>
+                            <span class="zh">全省用户观看时长统计</span>
                         </li>
                     </ul>
 
                     <div class="tab-content no-padding">
                         <!-- 时长总计 -->
                         <div class="tab-pane" id="time-pane">
-                            <table id="online-table" class="table table-striped table-bordered"></table>
+                            <table id="time-table" class="table table-striped table-bordered"></table>
                         </div>
 
-                         <!-- 时长分布 -->
-                        <div class="tab-pane active main-chart" id="time-chart"></div>
+                        <!-- 时长分布 -->
+                        <div class="tab-pane active" id="time-chart-group">
+                            <div class="col-md-6 col-lg-6">
+                                <div id="time-chart1" class="main-chart"></div>
+                            </div>
+                            <div class="col-md-6 col-lg-6">
+                                <div id="time-chart2" class="main-chart"></div>
+                            </div>
+                        </div>
 
                     </div>
                 </div><!-- /.nav-tabs-custom -->
 
-            </div><!-- / 用户在线统计 -->
+            </div><!-- / 用户观看时长统计 -->
 
         </div><!-- /. col -->
 
     </div>
 
-    <!-- 地域人数统计 -->
+    <!-- 地区平均时长统计 -->
     <div class="row">
         <div class="col-lg-12 col-md-12">
-            <!-- 地域人数统计 -->
+            <!-- 地区平均时长统计 -->
             <div class="box box-solid">
                 <!-- Custom tabs -->
                 <div class="nav-tabs-custom">
                     <!-- Tabs within a box -->
                     <ul class="nav nav-tabs pull-right">
                         <li><a href="#area-pane" data-toggle="tab">
-                            <span class="zh">分布详情</span></a>
+                            <span class="zh">统计详情</span></a>
                         </li>
-                        <li class="active"><a href="#area-chart" data-toggle="tab">
-                            <span class="zh">地域分布</span></a>
+                        <li class="active"><a href="#area-chart-group" data-toggle="tab">
+                            <span class="zh">时长统计</span></a>
                         </li>
                         <li class="pull-left header"><i class="fa fa-globe"></i>
-                            <span class="zh">地域时长统计</span>
+                            <span class="zh">地区平均观看时长统计</span>
                         </li>
                     </ul>
 
                     <div class="tab-content no-padding">
-                        <!-- 人口详情 -->
+                        <!-- 统计详情 -->
                         <div class="tab-pane" id="area-pane">
                             <table id="area-table" class="table table-striped table-bordered"></table>
                         </div>
 
-                        <!-- 人口分布 -->
-                        <div class="tab-pane active main-chart" id="area-chart"></div>
+                        <!-- 时长统计 -->
+                        <div class="tab-pane active" id="area-chart-group">
+                            <div class="col-md-6 col-lg-6">
+                                <div id="area-chart1" class="main-chart"></div>
+                            </div>
+                            <div class="col-md-6 col-lg-6">
+                                <div id="area-chart2" class="main-chart"></div>
+                            </div>
+                        </div>
                     </div>
                 </div><!-- /.nav-tabs-custom -->
 
-            </div><!-- / 用户在线统计 -->
+            </div><!-- / 地区平均时长统计 -->
 
         </div><!-- /. col -->
 
