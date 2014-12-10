@@ -11,16 +11,17 @@ def index():
         content_title='收视概况')
 
 @mainView.route('/tvcrm/')
-@mainView.route('/tvcrm/<int:tv_id>')
 @login_required
-def tvcrm(tv_id=None):
-    if tv_id == 1:
-        return render_template('main/pages/room_detail.html',
-            content_title='石家庄金石机房',
-            web_3d_url = "#")
-
+def tvcrm():
     return render_template('main/pages/tvcrm.html',
             content_title='收视率分析')
+
+
+@mainView.route('/user_analysis/')
+@login_required
+def user_analysis():
+    return render_template('main/pages/user_analysis.html',
+            content_title='用户在线统计')
 
 
 @mainView.route('/room/')

@@ -1,19 +1,7 @@
-function returnStar(value) {
-    var starStr = "";
-    for(var i=1; i<= value; i++) {
-        starStr +=  "<i class='fa fa-star star'></i>";
-    }
-    for(;i<=5;i++){
-        starStr +=  "<i class='fa fa-star-o star'></i>";
-    }
-
-    return starStr;
-}
-
 $(function() {
     "use strict";
 
-    // 用户在线统计
+    // 在线人数统计
     var $onlineTable = $("#online-table");
 
     $onlineTable.dataTable({
@@ -65,6 +53,8 @@ $(function() {
             ["11/30/14", 15.6, 19.6, 18.3, 18.6, 21.1, 28.2]
         ]
     });
+
+    // 在线人数统计
 
     var $onlineChart1 = $('#online-chart1');
     var $onlineChart2 = $('#online-chart2');
@@ -162,10 +152,10 @@ $(function() {
         }]
     });
 
-    // 节目收视统计
-    var $tvTable = $("#tv-table");
+    // 地域人数统计
+    var $areaTable = $("#area-table");
 
-    $tvTable.dataTable({
+    $areaTable.dataTable({
         "info" : false,
         "paging": true,
         "filter": false,
@@ -173,139 +163,84 @@ $(function() {
         "pageLength":8,
         "destroy": true,
         "columns": [
-            { "title": "日期", "class": "center" },
-            { "title": "新闻 (小时)", "class": "center" },
-            { "title": "综艺 (小时)", "class": "center" },
-            { "title": "电视 (小时)", "class": "center" },
-            { "title": "电影 (小时)", "class": "center" },
-            { "title": "体育 (小时)", "class": "center" },
-            { "title": "其他 (小时)", "class": "center" }
+            { "title": "城市", "class": "center" },
+            { "title": "平均在线人数(万人)",  "class": "center" },
+            { "title": "峰值在线人数(万人)",  "class": "center" }
         ],
         "data": [
-            ["11/01/14", 1.9, 1.6, 2.5, 1.6, 0.2, 1.7],
-            ["11/02/14", 1.3, 1.2, 2.5, 1.6, 0.4, 1.5],
-            ["11/03/14", 1.2, 1.9, 2.6, 1.6, 0.6, 1.0],
-            ["11/04/14", 1.9, 1.6, 2.9, 1.6, 0.7, 1.3],
-            ["11/05/14", 1.5, 1.5, 2.3, 1.6, 0.7, 1.9],
-            ["11/06/14", 1.1, 1.0, 2.0, 1.6, 0.7, 1.7],
-            ["11/07/14", 1.1, 1.0, 2.4, 1.6, 0.1, 1.2],
-            ["11/08/14", 1.0, 1.7, 2.1, 1.6, 0.8, 1.8],
-            ["11/09/14", 1.0, 1.5, 2.4, 1.6, 0.8, 1.9],
-            ["11/10/14", 1.1, 1.8, 2.4, 1.6, 0.3, 1.1],
-            ["11/11/14", 1.4, 1.4, 2.1, 1.6, 0.5, 1.1],
-            ["11/12/14", 1.6, 1.3, 2.6, 1.6, 0.4, 1.1],
-            ["11/13/14", 1.0, 1.2, 2.5, 1.6, 0.7, 1.6],
-            ["11/14/14", 1.1, 1.2, 2.2, 1.6, 0.2, 1.7],
-            ["11/15/14", 1.5, 1.9, 2.0, 1.6, 0.5, 1.9],
-            ["11/16/14", 1.8, 1.8, 2.5, 1.6, 0.6, 1.4],
-            ["11/17/14", 1.6, 1.7, 2.8, 1.6, 0.2, 1.7],
-            ["11/18/14", 1.1, 1.3, 2.5, 1.6, 0.3, 1.9],
-            ["11/19/14", 1.8, 1.5, 2.5, 1.6, 0.5, 1.2],
-            ["11/20/14", 1.5, 1.5, 2.9, 1.6, 0.4, 1.4],
-            ["11/21/14", 1.1, 1.3, 2.0, 1.6, 0.2, 1.5],
-            ["11/22/14", 1.0, 1.0, 2.1, 1.6, 0.9, 1.7],
-            ["11/23/14", 1.6, 1.6, 2.9, 1.6, 0.2, 1.3],
-            ["11/24/14", 1.3, 1.2, 2.5, 1.6, 0.3, 1.2],
-            ["11/25/14", 1.9, 1.4, 2.8, 1.6, 0.7, 1.9],
-            ["11/26/14", 1.7, 1.7, 2.5, 1.6, 0.0, 1.0],
-            ["11/27/14", 1.7, 1.0, 2.2, 1.6, 0.9, 1.3],
-            ["11/28/14", 1.6, 1.6, 2.2, 1.6, 0.5, 1.5],
-            ["11/29/14", 1.4, 1.3, 2.6, 1.6, 0.2, 1.4],
-            ["11/30/14", 1.6, 1.6, 2.3, 1.6, 0.1, 1.2]
+            ['酒泉市', 4.9, 9.6],
+            ['张掖市', 5.3, 9.2],
+            ['武威市', 4.2, 8.9],
+            ['陇南市', 3.9, 5.6],
+            ['庆阳市', 5.5, 6.5],
+            ['白银市', 5.1, 6.0],
+            ['定西市', 4.1, 7.0],
+            ['天水市', 4.0, 9.7],
+            ['兰州市', 6.0, 6.5],
+            ['平凉市', 5.1, 7.8],
+            ['金昌市', 4.4, 9.4],
+            ['嘉峪关市', 3.4, 6.4],
+            ['临夏回族自治州', 4.0, 8.2],
+            ['甘南藏族自治州', 6.1, 9.2]
         ]
     });
 
-    var $tvChart1 = $('#tv-chart1');
-    var $tvChart2 = $('#tv-chart2');
 
-    $tvChart1.highcharts({
-        chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: false
-        },
+    // 地域观看人口统计
+
+    var $areaChartDom = document.getElementById('area-chart');
+    var $areaChart = echarts.init($areaChartDom);
+    var $areaChartOption = {
         title: {
-            text: '收视类型分布'
+            text : '地域人数统计',
+            subtext : '2014年 11月'
         },
-        subtitle: {
-            text: '2014年 11月'
+        tooltip : {
+            trigger: 'item',
+            formatter: '{b}: {c} 万'
         },
-        tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f} %</b>'
+        legend: {
+            orient: 'vertical',
+            x:'right',
+            data:['在线统计']
         },
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: false
+        dataRange: {
+            min: 1,
+            max: 10,
+            //color:['orange','yellow'],
+            text:['10万','1万'],           // 文本，默认为数值文本
+            calculable : true
+        },
+        series : [
+            {
+                name: '在线统计',
+                type: 'map',
+                mapType: '甘肃',
+                selectedMode : 'single',
+                itemStyle:{
+                    normal:{label:{show:true}},
+                    emphasis:{label:{show:true}}
                 },
-                showInLegend: true
+                data:[
+                    {name: '酒泉市',value: 6.5},
+                    {name: '张掖市',value: 4.8},
+                    {name: '武威市',value: 2.1},
+                    {name: '陇南市',value: 1.9},
+                    {name: '庆阳市',value: 1.3},
+                    {name: '白银市',value: 2.5},
+                    {name: '定西市',value: 1.7},
+                    {name: '天水市',value: 2.2},
+                    {name: '兰州市',value: 8.1},
+                    {name: '平凉市',value: 2.9},
+                    {name: '金昌市',value: 2.4},
+                    {name: '嘉峪关市',value: 1.9},
+                    {name: '临夏回族自治州',value: 1.7},
+                    {name: '甘南藏族自治州',value: 2.0}
+                ]
             }
-        },
-        series: [{
-            type: 'pie',
-            name: '节目占比',
-            data: [
-                ['新闻', 16.7],
-                ['综艺', 22.3],
-                {
-                    name: '电视剧',
-                    y: 25.6,
-                    sliced: true,
-                    selected: true
-                },
-                ['电影', 12.5],
-                ['体育', 10.8],
-                ['其他', 12.1]
-            ]
-        }]
-    });
+        ]
+    };
 
-    $tvChart2.highcharts({
-        chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: false
-        },
-        title: {
-            text: '观看时长分布'
-        },
-        subtitle: {
-            text: '2014年 11月'
-        },
-        tooltip: {
-            pointFormat: '平均时长: <b>{point.y} 小时</b><br/>{series.name}: <b>{point.percentage:.1f} %</b>'
-        },
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: false
-                },
-                showInLegend: true
-            }
-        },
-        series: [{
-            type: 'pie',
-            name: '总体占比',
-            innerSize: '65%',
-            data: [
-                ['新闻', 0.7],
-                ['综艺', 1.3],
-                {
-                    name: '电视剧',
-                    y: 2.6,
-                    sliced: true,
-                    selected: true
-                },
-                ['电影', 1.5],
-                ['体育', 0.8],
-                ['其他', 1.1]
-            ]
-        }]
-    });
-
+    $areaChart.setOption($areaChartOption);
 
 });

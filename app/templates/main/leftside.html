@@ -18,7 +18,13 @@
         <ul class="sidebar-menu">
             <li class="active">
                 <a href="{{ url_for('main.index') }}">
-                    <i class="fa fa-video-camera"></i> <span class="zh">收视概况</span>
+                    <i class="fa fa-binoculars"></i> <span class="zh">收视概况</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('main.tvcrm') }}">
+                    <i class="fa fa-video-camera"></i> <span class="zh">收视率分析</span>
                 </a>
             </li>
 
@@ -26,22 +32,19 @@
 
                 <a href="#">
                     <i class="fa fa-area-chart"></i>
-                    <span class="zh">节目分析</span>
+                    <span class="zh">用户行为分析</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
 
                 <ul class="treeview-menu">
-                    <li><a href="{{ url_for('main.tvcrm') }}"><i class="fa fa-angle-double-right"></i> <span class="zh">收视率分析</span></a></li>
-                    <li><a href="{{ url_for('main.flow') }}"><i class="fa fa-angle-double-right"></i> <span class="zh">用户分布</span></a></li>
+                    <li><a href="{{ url_for('main.user_analysis') }}"><i class="fa fa-angle-double-right"></i> <span class="zh">在线统计</span></a></li>
+                    <li><a href="{{ url_for('main.flow') }}"><i class="fa fa-angle-double-right"></i> <span class="zh">观影分布</span></a></li>
+                    <li><a href="{{ url_for('main.flow') }}"><i class="fa fa-angle-double-right"></i> <span class="zh">观影分布</span></a></li>
                 </ul>
 
             </li>
 
-            <li>
-                <a href="{{ url_for('main.business') }}">
-                    <i class="fa fa-jpy"></i> <span class="zh">业务收入评估</span>
-                </a>
-            </li>
+
             <li>
                 <a href="{{ url_for('main.customer') }}">
                     <i class="fa fa-user"></i> <span class="zh">客户评估</span> <small class="badge pull-right bg-green">new</small>
