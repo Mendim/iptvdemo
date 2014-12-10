@@ -1,4 +1,4 @@
-{% extends 'manager/layout.html' %}
+{% extends 'main/layout.html' %}
 
 {% block css %}
 {{ super() }}
@@ -9,6 +9,12 @@
         margin: 10px 20px 0 20px;
         height: 400px;
     }
+
+    .star {
+        font-size: 16px;
+        color: #f39c12;
+    }
+
     .status-ok {
         font-size: 16px;
         color: #27b740;
@@ -23,8 +29,8 @@
         text-align: center;
     }
 
-    #account-table {
-        min-height: 300px;
+    #account-pane {
+        height: 450px;
     }
 
     .form-inline {
@@ -47,10 +53,10 @@
                     <!-- Tabs within a box -->
                     <ul class="nav nav-tabs pull-right">
                         <li class="active"><a href="#account-pane" data-toggle="tab">
-                            <span class="zh">端口核算</span></a>
+                            <span class="zh">深度用户分析</span></a>
                         </li>
-                        <li class="pull-left header"><i class="fa fa-calculator"></i>
-                            <span class="zh">端口核算</span>
+                        <li class="pull-left header"><i class="fa fa-users"></i>
+                            <span class="zh">深度用户分析</span>
                         </li>
                     </ul>
 
@@ -59,19 +65,26 @@
                         <div class="tab-pane active" id="account-pane">
                             <form class="form-inline pull-right" role="form">
                                 <div class="form-group">
-                                    <label class="sr-only">机房</label>
-                                    <p class="form-control-static" style="margin-right: 10px;">选择机房: </p>
+                                    <label class="sr-only">城市</label>
+                                    <p class="form-control-static" style="margin-right: 10px;">选择城市: </p>
                                 </div>
                                 <div class="form-group">
                                     <label for="select-room" class="sr-only">选择机房</label>
                                     <select class="form-control input-sm" id="select-room">
-                                        <option>石家庄金石</option>
-                                        <option>石家庄鹿泉</option>
-                                        <option>石家庄二枢纽</option>
-                                        <option>保定A</option>
-                                        <option>保定B</option>
-                                        <option>唐山A</option>
-                                        <option>唐山B</option>
+                                        <option>兰州市</option>
+                                        <option>酒泉市</option>
+                                        <option>张掖市</option>
+                                        <option>武威市</option>
+                                        <option>陇南市</option>
+                                        <option>庆阳市</option>
+                                        <option>白银市</option>
+                                        <option>定西市</option>
+                                        <option>天水市</option>
+                                        <option>平凉市</option>
+                                        <option>金昌市</option>
+                                        <option>嘉峪关市</option>
+                                        <option>临夏回族自治州</option>
+                                        <option>甘南藏族自治州</option>
                                     </select>
                                 </div>
                             </form>
@@ -105,6 +118,6 @@
 <script src="{{ url_for('static', filename='vendor/datatables/js/dataTables.bootstrap.js') }}" type="text/javascript"></script>
 
 <!-- page js -->
-<script src="{{ url_for('static', filename='custom/appjs/manager/flow_page.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='custom/appjs/main/user_info_page.js') }}" type="text/javascript"></script>
 
 {% endblock %}

@@ -38,9 +38,10 @@ def time_analysis():
 @mainView.route('/user_info/<int:user_id>')
 @login_required
 def user_info(user_id=None):
-    if user_id == 1:
+    if user_id:
         return render_template('main/pages/user_detail.html',
-            content_title='用户分析')
+            content_title='用户深度分析',
+            content_id=user_id)
 
     return render_template('main/pages/user_info.html',
         content_title='用户分析')

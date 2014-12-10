@@ -1,0 +1,148 @@
+{% extends 'main/layout.html' %}
+
+{% block css %}
+{{ super() }}
+<link href="{{ url_for('static', filename='vendor/datatables/css/dataTables.bootstrap.css') }}" rel="stylesheet" type="text/css" />
+<style>
+    .tab-pane {
+        position: relative;
+        margin: 10px 20px 0 20px;
+        height: 400px;
+    }
+    .star {
+        font-size: 16px;
+        color: #f39c12;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    .main-chart {
+        height: 400px;
+    }
+
+    .small-chart {
+        height: 300px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Main content -->
+<section class="content">
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6">
+            <!-- Map box -->
+            <div class="box box-solid">
+                <div class="box-header">
+                    <i class="fa fa-stethoscope"></i>
+                    <h3 class="box-title">
+                        用户数据分析
+                    </h3>
+                </div>
+                <div class="box-body">
+                    <div id="polar-chart" class="small-chart"></div>
+                </div><!-- /.box-body-->
+            </div>
+            <!-- /.box -->
+        </div><!-- ./col -->
+
+        <div class="col-lg-6 col-md-6">
+            <!-- Map box -->
+            <div class="box box-solid">
+                <div class="box-header">
+                    <i class="fa fa-heart-o"></i>
+                    <h3 class="box-title">
+                        最喜爱电视台
+                    </h3>
+                </div>
+                <div class="box-body">
+                    <div id="tvcrm-chart" class="small-chart"></div>
+                </div><!-- /.box-body-->
+            </div>
+            <!-- /.box -->
+        </div><!-- ./col -->
+
+    </div><!-- / 四方块 -->
+
+    <!-- 收视统计 -->
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <!-- 收视统计 -->
+            <div class="box box-solid">
+                <!-- Custom tabs -->
+                <div class="nav-tabs-custom">
+                    <!-- Tabs within a box -->
+                    <ul class="nav nav-tabs pull-right">
+                        <li class="active"><a href="#online-chart" data-toggle="tab">
+                            <span class="zh">每日观看时长</span></a>
+                        </li>
+                        <li class="pull-left header"><i class="fa fa-clock-o"></i>
+                            <span class="zh">每日收视统计</span>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content no-padding">
+                        <!-- 每日观看时长 -->
+                        <div class="tab-pane active main-chart" id="online-chart"></div>
+                    </div>
+                </div><!-- /.nav-tabs-custom -->
+
+            </div><!-- / 用户在线统计 -->
+
+        </div><!-- /. col -->
+
+    </div>
+
+    <!-- 收视统计 -->
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <!-- 收视统计 -->
+            <div class="box box-solid">
+                <!-- Custom tabs -->
+                <div class="nav-tabs-custom">
+                    <!-- Tabs within a box -->
+                    <ul class="nav nav-tabs pull-right">
+                        <li class="active"><a href="#tv-chart" data-toggle="tab">
+                            <span class="zh">节目分布</span></a>
+                        </li>
+                        <li class="pull-left header"><i class="fa fa-youtube-play"></i>
+                            <span class="zh">每周 Top 节目</span>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content no-padding">
+                        <!-- 节目分布 -->
+                        <div class="tab-pane active main-chart" id="tv-chart"></div>
+                    </div>
+                </div><!-- /.nav-tabs-custom -->
+
+            </div><!-- / 用户在线统计 -->
+
+        </div><!-- /. col -->
+
+    </div>
+
+
+</section><!-- /.content -->
+
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+<!-- echarts js -->
+<script src="{{ url_for('static', filename='vendor/echarts/echarts-all.js') }}" type="text/javascript"></script>
+
+<!-- hightchart js -->
+<script src="{{ url_for('static', filename='vendor/highcharts/highcharts.js') }}" type="text/javascript"></script>
+
+<!-- data table js -->
+<script src="{{ url_for('static', filename='vendor/datatables/js/jquery.dataTables.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='vendor/datatables/js/dataTables.bootstrap.js') }}" type="text/javascript"></script>
+
+<!-- page js -->
+<script src="{{ url_for('static', filename='custom/appjs/main/user_detail_page.js') }}" type="text/javascript"></script>
+
+{% endblock %}
