@@ -16,6 +16,11 @@ def tvcrm():
     return render_template('main/pages/tvcrm.html',
             content_title='收视率分析')
 
+@mainView.route('/tv_analysis/')
+@login_required
+def tv_analysis():
+    return render_template('main/pages/tv_analysis.html',
+            content_title='节目内容分析')
 
 @mainView.route('/user_analysis/')
 @login_required
@@ -28,6 +33,17 @@ def user_analysis():
 def time_analysis():
     return render_template('main/pages/time_analysis.html',
             content_title='收视时长分析')
+
+@mainView.route('/user_info/')
+@mainView.route('/user_info/<int:user_id>')
+@login_required
+def user_info(user_id=None):
+    if user_id == 1:
+        return render_template('main/pages/user_detail.html',
+            content_title='用户分析')
+
+    return render_template('main/pages/user_info.html',
+        content_title='用户分析')
 
 
 @mainView.route('/room/')
