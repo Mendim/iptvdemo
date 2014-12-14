@@ -3,25 +3,6 @@
 {% block css %}
 {{ super() }}
 <link href="{{ url_for('static', filename='vendor/datatables/css/dataTables.bootstrap.css') }}" rel="stylesheet" type="text/css" />
-<style>
-    .tab-pane {
-        position: relative;
-        margin: 10px 20px 0 20px;
-        height: 400px;
-    }
-    .star {
-        font-size: 16px;
-        color: #f39c12;
-    }
-
-    .center {
-        text-align: center;
-    }
-
-    .main-chart {
-        height: 400px;
-    }
-</style>
 {% endblock %}
 
 {% block content %}
@@ -30,7 +11,7 @@
 
     <!-- 黄金时段收视率 -->
     <div class="row">
-        <div class="col-lg-12 col-mg-12">
+        <div class="col-lg-12 col-sm-12">
             <!-- 黄金时段收视率 -->
             <div class="box box-solid">
                 <!-- Custom tabs -->
@@ -67,7 +48,7 @@
 
     <!-- 晚间节目收视率 -->
     <div class="row">
-        <div class="col-lg-12 col-mg-12">
+        <div class="col-lg-12 col-sm-12">
             <!-- 晚间节目收视率 -->
             <div class="box box-solid">
                 <!-- Custom tabs -->

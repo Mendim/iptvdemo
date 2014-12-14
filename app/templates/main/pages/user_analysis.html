@@ -3,25 +3,6 @@
 {% block css %}
 {{ super() }}
 <link href="{{ url_for('static', filename='vendor/datatables/css/dataTables.bootstrap.css') }}" rel="stylesheet" type="text/css" />
-<style>
-    .tab-pane {
-        position: relative;
-        margin: 10px 20px 0 20px;
-        height: 400px;
-    }
-    .star {
-        font-size: 16px;
-        color: #f39c12;
-    }
-
-    .center {
-        text-align: center;
-    }
-
-    .main-chart {
-        height: 400px;
-    }
-</style>
 {% endblock %}
 
 {% block content %}
@@ -30,7 +11,7 @@
 
     <!-- 全省在线统计 -->
     <div class="row">
-        <div class="col-lg-12 col-md-12">
+        <div class="col-lg-12 col-sm-12">
             <!-- 全省在线统计 -->
             <div class="box box-solid">
                 <!-- Custom tabs -->
@@ -67,7 +48,7 @@
 
     <!-- 地域人数统计 -->
     <div class="row">
-        <div class="col-lg-12 col-md-12">
+        <div class="col-lg-12 col-sm-12">
             <!-- 地域人数统计 -->
             <div class="box box-solid">
                 <!-- Custom tabs -->
@@ -93,10 +74,10 @@
 
                         <!-- 人口分布 -->
                         <div class="tab-pane active" id="area-chart-group">
-                            <div class="col-md-7 col-lg-7">
+                            <div class="col-sm-7 col-lg-7">
                                 <div id="area-chart1" class="main-chart"></div>
                             </div>
-                            <div class="col-md-5 col-lg-5">
+                            <div class="col-sm-5 col-lg-5">
                                 <div id="area-chart2" class="main-chart"></div>
                             </div>
                         </div>
@@ -111,7 +92,7 @@
 
     <!-- 在线人数分时段统计 -->
     <div class="row">
-        <div class="col-lg-12 col-md-12">
+        <div class="col-lg-12 col-sm-12">
             <!-- 在线人数分时段统计 -->
             <div class="box box-solid">
                 <!-- Custom tabs -->
@@ -137,10 +118,10 @@
 
                         <!-- 在线分布 -->
                         <div class="tab-pane active" id="online-time-chart-group">
-                            <div class="col-md-5 col-lg-5">
+                            <div class="col-sm-5 col-lg-5">
                                 <div id="online-time-chart1" class="main-chart"></div>
                             </div>
-                            <div class="col-md-7 col-lg-7">
+                            <div class="col-sm-7 col-lg-7">
                                 <div id="online-time-chart2" class="main-chart"></div>
                             </div>
                         </div>

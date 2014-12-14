@@ -4,35 +4,6 @@
 {{ super() }}
 <link href="{{ url_for('static', filename='vendor/datatables/css/dataTables.bootstrap.css') }}" rel="stylesheet" type="text/css" />
 <style>
-    .tab-pane {
-        position: relative;
-        margin: 10px 20px 0 20px;
-        height: 400px;
-    }
-
-    .star {
-        font-size: 16px;
-        color: #f39c12;
-    }
-
-    .status-ok {
-        font-size: 16px;
-        color: #27b740;
-    }
-
-    .status-error {
-        font-size: 16px;
-        color: #f3343d;
-    }
-
-    .center {
-        text-align: center;
-    }
-
-    #account-pane {
-        height: 450px;
-    }
-
     .form-inline {
         margin-bottom: 10px;
     }
@@ -45,7 +16,7 @@
 
     <!-- 各业务收入情况 -->
     <div class="row">
-        <div class="col-lg-12 col-mg-12">
+        <div class="col-lg-12 col-sm-12">
             <!-- 各业务收入情况 -->
             <div class="box box-solid">
                 <!-- Custom tabs -->

@@ -3,25 +3,6 @@
 {% block css %}
 {{ super() }}
 <link href="{{ url_for('static', filename='vendor/datatables/css/dataTables.bootstrap.css') }}" rel="stylesheet" type="text/css" />
-<style>
-    .tab-pane {
-        position: relative;
-        margin: 10px 20px 0 20px;
-        height: 400px;
-    }
-    .star {
-        font-size: 16px;
-        color: #f39c12;
-    }
-
-    .center {
-        text-align: center;
-    }
-
-    .main-chart {
-        height: 400px;
-    }
-</style>
 {% endblock %}
 
 {% block content %}
@@ -31,7 +12,7 @@
     <!-- 四方块 -->
     <div class="row">
 
-        <div class="col-lg-3 col-md-6">
+        <div class="col-sm-3">
             <!-- 当日在线用户 -->
             <div class="small-box bg-aqua">
                 <div class="inner">
@@ -52,7 +33,7 @@
             </div>
         </div><!-- ./col -->
 
-         <div class="col-lg-3 col-md-6">
+         <div class="col-sm-3">
             <!-- 平均观看时长 -->
             <div class="small-box bg-green">
                 <div class="inner">
@@ -73,7 +54,7 @@
             </div>
         </div><!-- ./col -->
 
-        <div class="col-lg-3 col-md-6">
+        <div class="col-sm-3">
             <!-- 广告收看率 -->
             <div class="small-box bg-yellow">
                 <div class="inner">
@@ -95,7 +76,7 @@
         </div><!-- ./col -->
 
 
-        <div class="col-lg-3 col-md-6">
+        <div class="col-sm-3">
             <!-- 最高收视率 -->
             <div class="small-box bg-red">
                 <div class="inner">
@@ -120,7 +101,7 @@
 
     <!-- 用户在线统计 -->
     <div class="row">
-        <div class="col-lg-12 col-md-12">
+        <div class="col-lg-12 col-sm-12">
             <!-- 用户在线统计 -->
             <div class="box box-solid">
                 <!-- Custom tabs -->
@@ -146,10 +127,10 @@
 
                          <!-- 在线分布 -->
                         <div class="tab-pane active" id="online-chart-group">
-                            <div class="col-md-5 col-lg-5">
+                            <div class="col-sm-5 col-lg-5">
                                 <div id="online-chart1" class="main-chart"></div>
                             </div>
-                            <div class="col-md-7 col-lg-7">
+                            <div class="col-sm-7 col-lg-7">
                                 <div id="online-chart2" class="main-chart"></div>
                             </div>
                         </div>
@@ -164,7 +145,7 @@
 
     <!-- 节目收视统计 -->
     <div class="row">
-        <div class="col-lg-12 col-md-12">
+        <div class="col-lg-12 col-sm-12">
             <!-- 节目收视统计 -->
             <div class="box box-solid">
                 <!-- Custom tabs -->
@@ -190,10 +171,10 @@
 
                         <!-- 收视统计 -->
                         <div class="tab-pane active" id="tv-chart-group">
-                            <div class="col-md-6 col-lg-6">
+                            <div class="col-sm-6 col-lg-6">
                                 <div id="tv-chart1" class="main-chart"></div>
                             </div>
-                            <div class="col-md-6 col-lg-6">
+                            <div class="col-sm-6 col-lg-6">
                                 <div id="tv-chart2" class="main-chart"></div>
                             </div>
                         </div>

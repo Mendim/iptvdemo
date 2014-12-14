@@ -1,0 +1,63 @@
+.zh {
+        font-family: "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    }
+
+.subtitle {
+    font-family: "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    margin-left: 10px;
+}
+
+.progress {
+    position: relative;
+}
+
+.progress span {
+    position: absolute;
+    display: block;
+    width: 100%;
+    color: black;
+}
+
+.table-vcenter td {
+    text-align: center!important;
+    vertical-align: middle!important;
+}
+
+.table-vcenter th {
+    text-align: center!important;
+    vertical-align: middle!important;
+}
+
+.tab-pane {
+    position: relative;
+    margin: 10px 20px 0 20px;
+    height: auto;
+    min-height: 420px;
+}
+
+.star {
+    font-size: 16px;
+    color: #f39c12;
+}
+
+.status-ok {
+    font-size: 16px;
+    color: #27b740;
+}
+
+.status-error {
+    font-size: 16px;
+    color: #f3343d;
+}
+
+.center {
+    text-align: center;
+}
+
+.main-chart {
+    height: 400px;
+}
+
+.small-chart {
+    height: 300px;
+}

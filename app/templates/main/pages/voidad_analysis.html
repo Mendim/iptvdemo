@@ -3,25 +3,6 @@
 {% block css %}
 {{ super() }}
 <link href="{{ url_for('static', filename='vendor/datatables/css/dataTables.bootstrap.css') }}" rel="stylesheet" type="text/css" />
-<style>
-    .tab-pane {
-        position: relative;
-        margin: 10px 20px 0 20px;
-        height: 400px;
-    }
-    .star {
-        font-size: 16px;
-        color: #f39c12;
-    }
-
-    .center {
-        text-align: center;
-    }
-
-    .main-chart {
-        height: 400px;
-    }
-</style>
 {% endblock %}
 
 {% block content %}
@@ -29,7 +10,7 @@
 <section class="content">
     <!-- 在线人数分时段统计 -->
     <div class="row">
-        <div class="col-lg-12 col-md-12">
+        <div class="col-lg-12 col-sm-12">
             <!-- 在线人数分时段统计 -->
             <div class="box box-solid">
                 <!-- Custom tabs -->

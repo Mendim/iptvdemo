@@ -3,25 +3,6 @@
 {% block css %}
 {{ super() }}
 <link href="{{ url_for('static', filename='vendor/datatables/css/dataTables.bootstrap.css') }}" rel="stylesheet" type="text/css" />
-<style>
-    .tab-pane {
-        position: relative;
-        margin: 10px 20px 0 20px;
-        height: 400px;
-    }
-    .star {
-        font-size: 16px;
-        color: #f39c12;
-    }
-
-    .center {
-        text-align: center;
-    }
-
-    .main-chart {
-        height: 400px;
-    }
-</style>
 {% endblock %}
 
 {% block content %}
@@ -30,7 +11,7 @@
 
     <!-- 用户观看时长统计 -->
     <div class="row">
-        <div class="col-lg-12 col-md-12">
+        <div class="col-lg-12 col-sm-12">
             <!-- 用户观看时长统计 -->
             <div class="box box-solid">
                 <!-- Custom tabs -->
@@ -56,10 +37,10 @@
 
                         <!-- 时长分布 -->
                         <div class="tab-pane active" id="time-chart-group">
-                            <div class="col-md-6 col-lg-6">
+                            <div class="col-sm-6 col-lg-6">
                                 <div id="time-chart1" class="main-chart"></div>
                             </div>
-                            <div class="col-md-6 col-lg-6">
+                            <div class="col-sm-6 col-lg-6">
                                 <div id="time-chart2" class="main-chart"></div>
                             </div>
                         </div>
@@ -75,7 +56,7 @@
 
     <!-- 地区平均时长统计 -->
     <div class="row">
-        <div class="col-lg-12 col-md-12">
+        <div class="col-lg-12 col-sm-12">
             <!-- 地区平均时长统计 -->
             <div class="box box-solid">
                 <!-- Custom tabs -->
@@ -101,10 +82,10 @@
 
                         <!-- 时长统计 -->
                         <div class="tab-pane active" id="area-chart-group">
-                            <div class="col-md-6 col-lg-6">
+                            <div class="col-sm-6 col-lg-6">
                                 <div id="area-chart1" class="main-chart"></div>
                             </div>
-                            <div class="col-md-6 col-lg-6">
+                            <div class="col-sm-6 col-lg-6">
                                 <div id="area-chart2" class="main-chart"></div>
                             </div>
                         </div>
