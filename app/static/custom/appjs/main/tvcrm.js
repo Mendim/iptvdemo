@@ -1,19 +1,3 @@
-function returnStar(value) {
-    var starStr = "";
-    for(var i=1; i<= value; i++) {
-        starStr +=  "<i class='fa fa-star star'></i>";
-    }
-    for(;i<=5;i++){
-        starStr +=  "<i class='fa fa-star-o star'></i>";
-    }
-
-    return starStr;
-}
-
-function roomLink(value) {
-    return "<a href='1' target='_blank'>" + value + "</a>";
-}
-
 $(function() {
     "use strict";
 
@@ -65,8 +49,7 @@ $(function() {
         },
         grid: {
             borderWidth: 0,
-            y: 80,
-            y2: 60
+            y: 8
         },
         xAxis: [
             {
@@ -109,16 +92,16 @@ $(function() {
                         show: false
                     },
                     data: [
-                        {xAxis:0 , y: 370, name:'湖南', symbolSize:20, symbol:'image:///static/cdn/images/tvlogo/hn.png'},
-                        {xAxis:1 , y: 370, name:'江苏', symbolSize:20, symbol:'image:///static/cdn/images/tvlogo/js.png'},
-                        {xAxis:2 , y: 370, name:'浙江', symbolSize:20, symbol:'image:///static/cdn/images/tvlogo/zj.png'},
-                        {xAxis:3 , y: 370, name:'上海', symbolSize:20, symbol:'image:///static/cdn/images/tvlogo/sh.png'},
-                        {xAxis:4 , y: 370, name:'北京', symbolSize:20, symbol:'image:///static/cdn/images/tvlogo/bj.png'},
-                        {xAxis:5 , y: 370, name:'广东', symbolSize:20, symbol:'image:///static/cdn/images/tvlogo/gd.png'},
-                        {xAxis:6 , y: 370, name:'天津', symbolSize:20, symbol:'image:///static/cdn/images/tvlogo/tj.png'},
-                        {xAxis:7 , y: 370, name:'湖北', symbolSize:20, symbol:'image:///static/cdn/images/tvlogo/hb.png'},
-                        {xAxis:8 , y: 370, name:'东南', symbolSize:20, symbol:'image:///static/cdn/images/tvlogo/dn.png'},
-                        {xAxis:9 , y: 370, name:'山东', symbolSize:20, symbol:'image:///static/cdn/images/tvlogo/sd.png'}
+                        {xAxis:0 , y: 390, name:'湖南', symbolSize:20, symbol:'image:///static/cdn/images/tvlogo/hn.png'},
+                        {xAxis:1 , y: 390, name:'江苏', symbolSize:20, symbol:'image:///static/cdn/images/tvlogo/js.png'},
+                        {xAxis:2 , y: 390, name:'浙江', symbolSize:20, symbol:'image:///static/cdn/images/tvlogo/zj.png'},
+                        {xAxis:3 , y: 390, name:'上海', symbolSize:20, symbol:'image:///static/cdn/images/tvlogo/sh.png'},
+                        {xAxis:4 , y: 390, name:'北京', symbolSize:20, symbol:'image:///static/cdn/images/tvlogo/bj.png'},
+                        {xAxis:5 , y: 390, name:'广东', symbolSize:20, symbol:'image:///static/cdn/images/tvlogo/gd.png'},
+                        {xAxis:6 , y: 390, name:'天津', symbolSize:20, symbol:'image:///static/cdn/images/tvlogo/tj.png'},
+                        {xAxis:7 , y: 390, name:'湖北', symbolSize:20, symbol:'image:///static/cdn/images/tvlogo/hb.png'},
+                        {xAxis:8 , y: 390, name:'东南', symbolSize:20, symbol:'image:///static/cdn/images/tvlogo/dn.png'},
+                        {xAxis:9 , y: 390, name:'山东', symbolSize:20, symbol:'image:///static/cdn/images/tvlogo/sd.png'}
                     ]
                 }
             }
