@@ -13,11 +13,11 @@ $(function() {
         polar : [
            {
                indicator : [
-                   { text: '观看时长', max: 10},
-                   { text: '付费意愿', max: 10},
-                   { text: '教育程度', max: 10},
-                   { text: '工作空闲度', max: 10},
-                   { text: '广告接受度', max: 10}
+                   { text: '娱乐综艺', max: 10},
+                   { text: '新闻综合', max: 10},
+                   { text: '本地生活', max: 10},
+                   { text: '电视剧',  max: 10},
+                   { text: '经济教育', max: 10}
                 ]
             }
         ],
