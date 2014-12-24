@@ -50,4 +50,10 @@ def user_info(user_id=None):
 @login_required
 def voidad_analysis():
     return render_template('main/pages/voidad_analysis.html',
-            content_title='广告分析')
+            content_title='直播广告分析')
+
+@mainView.route('/epg_analysis/')
+@login_required
+def epg_analysis():
+    return render_template('main/pages/epg_analysis.html',
+            content_title='EPG展示分析')

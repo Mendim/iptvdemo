@@ -59,11 +59,25 @@
 
             </li>
 
+            <li class="treeview">
 
-            <li>
-                <a href="{{ url_for('main.voidad_analysis') }}">
-                    <i class="fa fa-send-o"></i> <span class="zh">广告分析</span> <small class="badge pull-right bg-green">new</small>
+                <a href="#">
+                    <i class="fa fa-send-o"></i>
+                    <span class="zh">广告数据</span>
+                    <!-- <small class="badge bg-green">new</small> -->
+                    <i class="fa fa-angle-left pull-right"></i>
                 </a>
+
+                <ul class="treeview-menu">
+                    <li><a href="{{ url_for('main.voidad_analysis') }}">
+                        <i class="fa fa-angle-double-right"></i> <span class="zh">直播广告分析</span></a></li>
+                    <li><a href="{{ url_for('main.epg_analysis') }}">
+                        <i class="fa fa-angle-double-right"></i> <span class="zh">EPG展示分析</span></a></li>
+                    <li><a href="{{ url_for('main.user_info') }}">
+                        <i class="fa fa-angle-double-right"></i> <span class="zh">硬广个性化推送</span></a></li>
+
+                </ul>
+
             </li>
 
         </ul>
