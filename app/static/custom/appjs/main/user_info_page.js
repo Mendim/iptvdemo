@@ -62,7 +62,7 @@ $(function() {
             { "title": "在线状态", "class": "center" },
             { "title": "平均在线时长", "class": "center" },
             { "title": "最爱节目类型", "class": "center" },
-            { "title": "广告送达率 (%)", "class": "center"},
+            { "title": "直播广告切换率 (%)", "class": "center"},
             { "title": "广告更新状态", "class": "center"}
         ],
         "data": [
