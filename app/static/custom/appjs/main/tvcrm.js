@@ -1,7 +1,7 @@
 $(function() {
     "use strict";
 
-    // 电视台收视率
+    // 热门频道收视率
     var $tvcrmTable = $("#tvcrm-table");
 
     $tvcrmTable.dataTable({
@@ -31,13 +31,13 @@ $(function() {
         ]
     });
 
-    // 电视台收视率
+    // 热门频道收视率
     var tvcrmChartDom = document.getElementById('tvcrm-chart-pane');
     var tvcrmChart = echarts.init(tvcrmChartDom);
     var tvcrmOption = {
         title: {
             x: 'center',
-            text: '电视台收视率',
+            text: '热门频道收视率',
             subtext: '2014年 11月'
         },
         tooltip: {
@@ -110,53 +110,11 @@ $(function() {
 
     tvcrmChart.setOption(tvcrmOption);
 
-    // 黄金时段收视率
-    var goldChartDom = document.getElementById('gold-chart-pane');
-    var goldChart = echarts.init(goldChartDom);
-    var goldOption = {
-        tooltip : {
-            trigger: 'item',
-            formatter: "{b} <br/>{a} : {c} %"
-        },
-        legend: {
-            orient : 'vertical',
-            x : 'left',
-            data:['满仓进城','少林寺传奇','四十九日祭','姥爷的抗战','团圆饭','一仆二主','盾神','新神雕侠侣']
-        },
-        toolbox: {
-            show : false
-        },
-        calculable : false,
-        series : [
-            {
-                name:'收视率',
-                type:'pie',
-                radius : [30, 160],
-                roseType : 'radius',
-                selectedMode: 'single',
-                x: '50%',               // for funnel
-                max: 40,                // for funnel
-                sort : 'ascending',     // for funnel
-                data:[
-                    {value:1.020, name:'满仓进城'},
-                    {value:0.783,  name:'少林寺传奇'},
-                    {value:0.743, name:'四十九日祭'},
-                    {value:0.642, name:'姥爷的抗战'},
-                    {value:0.588, name:'团圆饭'},
-                    {value:0.545, name:'一仆二主'},
-                    {value:0.545, name:'盾神'},
-                    {value:0.502, name:'新神雕侠侣'}
-                ]
-            }
-        ]
-    };
+    // 频道收视率对比
 
-    goldChart.setOption(goldOption);
+    var $compareTable = $("#compare-table");
 
-    // 黄金时段收视率
-    var $goldTable = $("#gold-table");
-
-    $goldTable.dataTable({
+    $compareTable.dataTable({
         "info" : false,
         "paging": true,
         "filter": false,
@@ -164,130 +122,108 @@ $(function() {
         "pageLength":8,
         "destroy": true,
         "columns": [
-            { "title": "排名", "class": "center" },
-            { "title": "电视剧名称",  "class": "center" },
-            { "title": "播出频道",  "class": "center" },
-            { "title": "收视率",  "class": "center" },
-            { "title": "市场份额",  "class": "center" }
+            { "title": "月份", "class": "center" },
+            { "title": "省内频道",  "class": "center" },
+            { "title": "央视频道",  "class": "center" },
+            { "title": "其他卫视",  "class": "center" }
         ],
         "data": [
-            ["1" , "满仓进城", "江西卫视", 0.260, 2.41],
-            ["2" , "少林寺传奇", "浙江卫视", 0.203, 1.89],
-            ["3" , "四十九日祭", "天津卫视", 0.198, 1.84],
-            ["4" , "姥爷的抗战", "江西卫视", 0.172, 1.59],
-            ["5" , "团圆饭", "北京卫视", 0.170, 1.46],
-            ["6" , "一仆二主", "湖南卫视", 0.157, 1.58],
-            ["7" , "盾神", "深圳卫视", 0.153, 1.46],
-            ["8" , "新神雕侠侣", "湖南卫视", 0.141, 1.42]
+            ['1月' , 66.8, 22.8, 08.8],
+            ['2月' , 63.5, 20.6, 10.4],
+            ['3月' , 63.2, 23.3, 10.2],
+            ['4月' , 66.8, 22.2, 11.1],
+            ['5月' , 67.8, 21.6, 09.1],
+            ['6月' , 63.6, 24.5, 12.0],
+            ['7月' , 61.1, 20.7, 11.2],
+            ['8月' , 60.8, 25.2, 11.5],
+            ['9月' , 68.0, 21.7, 11.4],
+            ['10月', 65.4, 24.2, 10.5],
+            ['11月', 62.7, 25.2, 10.2],
+            ['12月', 60.9, 25.4, 11.4]
         ]
     });
 
+    // 频道收视率对比
+    var $compareChart = $('#compare-chart-pane');
 
-    // 晚间节目收视率
-    var entertainmentChartDom = document.getElementById('entertainment-chart-pane');
-    var entertainmentChart = echarts.init(entertainmentChartDom);
-    var entertainmentOption = {
-        tooltip : {
-            trigger: 'item',
-            formatter: "{b} <br/>收视率 : {c} %"
+    $compareChart.highcharts({
+        chart: {
+            type: 'column'
         },
-        legend: {
-            orient : 'vertical',
-            x : 'left',
-            data:['金牌调解','我不是明星','非你莫属','家庭幽默录像','我是大医生','变形记','决胜制高点',
-                '直播上海','我该怎么办','包公来了', '综艺', '专题', '生活']
+        title: {
+            text: '频道收视率对比'
         },
-        toolbox: {
-            show : false
+        subtitle: {
+            text: '2014年'
         },
-        calculable : false,
-        series : [
-            {
-                name:'节目类型',
-                type:'pie',
-                selectedMode: 'single',
-                radius : [0, 70],
-
-                // for funnel
-                x: '20%',
-                width: '40%',
-                funnelAlign: 'right',
-                max: 1548,
-
-                itemStyle : {
-                    normal : {
-                        label : {
-                            position : 'inner'
-                        },
-                        labelLine : {
-                            show : false
-                        }
-                    }
-                },
-                data:[
-                    {value:7.35, name:'综艺', selected:true},
-                    {value:3.56, name:'专题'},
-                    {value:2.13, name:'生活'}
-                ]
-            },
-            {
-                name:'节目名称',
-                type:'pie',
-                radius : [100, 140],
-
-                // for funnel
-                x: '60%',
-                width: '35%',
-                funnelAlign: 'left',
-                max: 1048,
-
-                data:[
-                    {value:0.634, name:'金牌调解'},
-                    {value:0.587, name:'我不是明星'},
-                    {value:0.560, name:'非你莫属'},
-                    {value:0.504, name:'家庭幽默录像'},
-                    {value:0.484, name:'我是大医生'},
-                    {value:0.424, name:'变形记'},
-                    {value:0.385, name:'决胜制高点'},
-                    {value:0.380, name:'直播上海'},
-                    {value:0.371, name:'我该怎么办'},
-                    {value:0.337, name:'包公来了'}
-                ]
+        xAxis: {
+            type: 'category',
+            labels: {
+                rotation: -45,
+                style: {
+                    fontSize: '14px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
             }
-        ]
-    };
-
-    entertainmentChart.setOption(entertainmentOption);
-
-    // 晚间节目收视率
-    var $entertainmentTable = $("#entertainment-table");
-
-    $entertainmentTable.dataTable({
-        "info" : false,
-        "paging": true,
-        "filter": false,
-        "lengthChange": false,
-        "pageLength":8,
-        "destroy": true,
-        "columns": [
-            { "title": "排名", "class": "center" },
-            { "title": "节目名称",  "class": "center" },
-            { "title": "播出频道",  "class": "center" },
-            { "title": "节目分类",  "class": "center" },
-            { "title": "收视率",  "class": "center" },
-            { "title": "市场份额",  "class": "center" }
-        ],
-        "data": [
-            ["1" , "金牌调解", "江西卫视", "专题", 0.260, 2.41],
-            ["2" , "我不是明星", "浙江卫视", "综艺", 0.203, 1.89],
-            ["3" , "非你莫属", "天津卫视", "综艺", 0.198, 1.84],
-            ["4" , "家庭幽默录", "江西卫视", "综艺", 0.172, 1.59],
-            ["5" , "我是大医生", "北京卫视", "生活", 0.170, 1.46],
-            ["6" , "变形记", "湖南卫视", "专题", 0.157, 1.58],
-            ["7" , "决胜制高点", "深圳卫视", "专题", 0.153, 1.46],
-            ["8" , "直播上海", "东方卫视", "生活", 0.141, 1.42],
-            ["9" , "我该怎么办", "云南卫视", "生活", 0.126, 1.39],
-            ["10", "包公来了", "湖北卫视", "综艺", 0.119, 1.31]
-        ]
+        },
+        yAxis: {
+            min: 0,
+            max: 70,
+            title: {
+                text: '收视率（%）'
+            }
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.y} %</b>'
+        },
+        series: [{
+            name: '本省频道',
+            data: [
+                ['1月' , 66.8],
+                ['2月' , 63.5],
+                ['3月' , 63.2],
+                ['4月' , 66.8],
+                ['5月' , 67.8],
+                ['6月' , 63.6],
+                ['7月' , 61.1],
+                ['8月' , 60.8],
+                ['9月' , 68.0],
+                ['10月', 65.4],
+                ['11月', 62.7],
+                ['12月', 60.9]
+            ]
+        },{
+            name: '央视频道',
+            data: [
+                ['1月' , 22.8],
+                ['2月' , 20.6],
+                ['3月' , 23.3],
+                ['4月' , 22.2],
+                ['5月' , 21.6],
+                ['6月' , 24.5],
+                ['7月' , 20.7],
+                ['8月' , 25.2],
+                ['9月' , 21.7],
+                ['10月', 24.2],
+                ['11月', 25.2],
+                ['12月', 25.4]
+            ]
+        }, {
+            name: '其他卫视频道',
+            data: [
+                ['1月' , 08.8],
+                ['2月' , 10.4],
+                ['3月' , 10.2],
+                ['4月' , 11.1],
+                ['5月' , 09.1],
+                ['6月' , 12.0],
+                ['7月' , 11.2],
+                ['8月' , 11.5],
+                ['9月' , 11.4],
+                ['10月', 10.5],
+                ['11月', 10.2],
+                ['12月', 11.4]
+            ]
+        }]
     });
 });
