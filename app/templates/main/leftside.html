@@ -18,23 +18,23 @@
         <ul class="sidebar-menu">
             <li class="active">
                 <a href="{{ url_for('main.index') }}">
-                    <i class="fa fa-pie-chart"></i> <span class="zh">收视概况</span>
+                    <i class="fa fa-leaf"></i> <span class="zh">运营概况</span>
                 </a>
             </li>
 
             <li class="treeview">
 
                 <a href="#">
-                    <i class="fa fa-youtube-play"></i>
-                    <span class="zh">节目统计</span>
+                    <i class="fa fa-database"></i>
+                    <span class="zh">收视统计</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
 
                 <ul class="treeview-menu">
                     <li><a href="{{ url_for('main.tvcrm') }}">
-                        <i class="fa fa-angle-double-right"></i> <span class="zh">收视率统计</span></a></li>
+                        <i class="fa fa-angle-double-right"></i> <span class="zh">频道统计</span></a></li>
                     <li><a href="{{ url_for('main.tv_analysis') }}">
-                        <i class="fa fa-angle-double-right"></i> <span class="zh">节目内容统计</span></a></li>
+                        <i class="fa fa-angle-double-right"></i> <span class="zh">节目统计</span></a></li>
                 </ul>
 
             </li>
@@ -49,11 +49,13 @@
 
                 <ul class="treeview-menu">
                     <li><a href="{{ url_for('main.user_analysis') }}">
-                        <i class="fa fa-angle-double-right"></i> <span class="zh">用户在线统计</span></a></li>
+                        <i class="fa fa-angle-double-right"></i> <span class="zh">在线人数统计</span></a></li>
                     <li><a href="{{ url_for('main.time_analysis') }}">
                         <i class="fa fa-angle-double-right"></i> <span class="zh">收视时长分析</span></a></li>
+                    <li><a href="{{ url_for('main.action_analysis') }}">
+                        <i class="fa fa-angle-double-right"></i> <span class="zh">用户行为分析</span></a></li>
                     <li><a href="{{ url_for('main.user_info') }}">
-                        <i class="fa fa-angle-double-right"></i> <span class="zh">深度用户分析</span></a></li>
+                        <i class="fa fa-angle-double-right"></i> <span class="zh">深度用户挖掘</span></a></li>
 
                 </ul>
 
@@ -62,20 +64,15 @@
             <li class="treeview">
 
                 <a href="#">
-                    <i class="fa fa-send-o"></i>
-                    <span class="zh">广告数据</span>
+                    <i class="fa fa-youtube-play"></i>
+                    <span class="zh">广告运营</span>
                     <!-- <small class="badge bg-green">new</small> -->
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
 
                 <ul class="treeview-menu">
-                    <li><a href="{{ url_for('main.voidad_analysis') }}">
-                        <i class="fa fa-angle-double-right"></i> <span class="zh">直播广告分析</span></a></li>
-                    <li><a href="{{ url_for('main.epg_analysis') }}">
-                        <i class="fa fa-angle-double-right"></i> <span class="zh">EPG展示分析</span></a></li>
-                    <li><a href="{{ url_for('main.user_info') }}">
-                        <i class="fa fa-angle-double-right"></i> <span class="zh">硬广个性化推送</span></a></li>
-
+                    <li><a href="{{ url_for('main.accurate_adpush') }}">
+                        <i class="fa fa-angle-double-right"></i> <span class="zh">精准广告投放</span></a></li>
                 </ul>
 
             </li>

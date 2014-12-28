@@ -14,19 +14,19 @@ def index():
 @login_required
 def tvcrm():
     return render_template('main/pages/tvcrm.html',
-            content_title='收视率统计')
+            content_title='频道统计')
 
 @mainView.route('/tv_analysis/')
 @login_required
 def tv_analysis():
     return render_template('main/pages/tv_analysis.html',
-            content_title='节目内容统计')
+            content_title='节目统计')
 
 @mainView.route('/user_analysis/')
 @login_required
 def user_analysis():
     return render_template('main/pages/user_analysis.html',
-            content_title='用户在线统计')
+            content_title='在线人数统计')
 
 @mainView.route('/time_analysis/')
 @login_required
@@ -34,23 +34,35 @@ def time_analysis():
     return render_template('main/pages/time_analysis.html',
             content_title='收视时长分析')
 
+@mainView.route('/action_analysis/')
+@login_required
+def action_analysis():
+    return render_template('main/pages/action_analysis.html',
+            content_title='用户行为分析')
+
 @mainView.route('/user_info/')
 @mainView.route('/user_info/<int:user_id>')
 @login_required
 def user_info(user_id=None):
     if user_id:
         return render_template('main/pages/user_detail.html',
-            content_title='深度用户分析',
+            content_title='深度用户挖掘',
             content_id=user_id)
 
     return render_template('main/pages/user_info.html',
-        content_title='深度用户分析')
+        content_title='深度用户挖掘')
 
-@mainView.route('/voidad_analysis/')
+@mainView.route('/accurate_adpush/')
+@mainView.route('/accurate_adpush/<int:user_id>')
 @login_required
-def voidad_analysis():
-    return render_template('main/pages/voidad_analysis.html',
-            content_title='直播广告分析')
+def accurate_adpush(user_id=None):
+    if user_id:
+        return render_template('main/pages/adpush_detail.html',
+            content_title='精准广告投放',
+            content_id=user_id)
+
+    return render_template('main/pages/accurate_adpush.html',
+            content_title='精准广告投放')
 
 @mainView.route('/epg_analysis/')
 @login_required
