@@ -389,4 +389,10 @@ $(function() {
             ["10", "包公来了", "湖北卫视", "综艺", 0.119, 1.31]
         ]
     });
+
+    window.onresize = function() {
+        entertainmentChart.resize();
+        goldChart.resize();
+        nightChart.resize();
+    };
 });

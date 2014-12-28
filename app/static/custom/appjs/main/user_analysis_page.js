@@ -368,4 +368,8 @@ $(function() {
         }]
     });
 
+    window.onresize = function() {
+        $areaChart1.resize();
+    };
+
 });

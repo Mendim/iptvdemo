@@ -226,4 +226,9 @@ $(function() {
             ]
         }]
     });
+
+    window.onresize = function() {
+        tvcrmChart.resize();
+    };
 });
+

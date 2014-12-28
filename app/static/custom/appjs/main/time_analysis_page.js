@@ -2,7 +2,6 @@ $(function() {
     "use strict";
 
     // 全省平均观看时长
-    // 观看时长人口区间
     var $timeTable = $("#time-table");
 
     $timeTable.dataTable({
@@ -143,7 +142,6 @@ $(function() {
 
 
     // 地区平均观看时长统计
-
     var $areaChartDom1 = document.getElementById('area-chart1');
     var $areaChart1 = echarts.init($areaChartDom1);
     var $areaChartOption1 = {
@@ -283,7 +281,6 @@ $(function() {
     });
 
     // 观看时长人口区间
-
     var $peopleChart = $('#people-chart-pane');
 
     $peopleChart.highcharts({
@@ -337,4 +334,8 @@ $(function() {
             data: [27.7, 28.5, 28.0, 27.3, 26.9, 29.7, 28.2, 27.8, 26.9, 29.1, 27.1]
         }]
     });
+
+    window.onresize = function() {
+        $areaChart1.resize();
+    };
 });
