@@ -190,58 +190,14 @@ $(function() {
 
     // 在线人数分时段统计
 
-    var $onlineTimeChart1 = $('#online-time-chart1');
-    var $onlineTimeChart2 = $('#online-time-chart2');
+    var $onlineTimeChart = $('#online-time-chart-pane');
 
-    $onlineTimeChart1.highcharts({
+    $onlineTimeChart.highcharts({
         chart: {
-            //plotBackgroundColor: null,
-            //plotBorderWidth: null,
-            //plotShadow: false
-            type: 'spline'
+            type: 'column'
         },
         title: {
-            text: '在线人数分时段分布'
-        },
-        subtitle: {
-            text: '2014年 11月'
-        },
-        tooltip: {
-            pointFormat: '在线人数: <b>{point.y} 万</b><br/>{series.name}: <b>{point.percentage:.1f} %</b>'
-        },
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: false
-                },
-                showInLegend: true
-            }
-        },
-        series: [{
-            type: 'pie',
-            name: '人数占比',
-            innerSize: '35%',
-            data: [
-                ['00 ~ 04 点', 16.4],
-                ['04 ~ 08 点', 9.4],
-                {
-                    name: '08 ~ 12 点',
-                    y: 15.4,
-                    sliced: true,
-                    selected: true
-                },
-                ['12 ~ 16 点', 12.4],
-                ['16 ~ 20 点', 18.5],
-                ['20 ~ 24 点', 22.6]
-            ]
-        }]
-    });
-
-    $onlineTimeChart2.highcharts({
-        title: {
-            text: '当月在线人数分时段统计'
+            text: '各时段在线人数'
         },
         subtitle: {
             text: '2014年 11月'
@@ -250,21 +206,20 @@ $(function() {
             categories: ['01号','04号','07号','10号','13号','16号','19号','22号','25号','28号','30号']
         },
         yAxis: {
+            min: 0,
+            max: 30,
             title: {
-                text: '在线用户（万）'
-            },
-            plotLines: [{
-                value: 0,
-                width: 1,
-                color: '#808080'
-            }]
+                text: '在线人数 (万人)'
+            }
         },
         tooltip: {
             valueSuffix: '（万）'
         },
-        legend: {
-            align: 'center',
-            borderWidth: 0
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
         },
         series: [{
             name: '00 ~ 04 点',
@@ -379,41 +334,38 @@ $(function() {
 
     $areaChart1.setOption($areaChartOption1);
 
-    var $areaChartDom2 = document.getElementById('area-chart2');
-    var $areaChart2 = echarts.init($areaChartDom2);
-    var $areaChartOption2 = {
-        tooltip : {
-            trigger: 'item',
-            formatter: "{b}<br/>{a}：{c} 万<br/>全省占比：{d} %"
-        },
-        calculable : false,
-        series : [
-            {
-                name:'在线人数',
-                type:'pie',
-                radius : '60%',
-                center: ['50%', '50%'],
-                selectedMode: 'single',
-                data:[
-                    {name: '酒泉市',value: 6.5, selected:true},
-                    {name: '张掖市',value: 4.8},
-                    {name: '武威市',value: 2.1},
-                    {name: '陇南市',value: 1.9},
-                    {name: '庆阳市',value: 1.3},
-                    {name: '白银市',value: 2.5},
-                    {name: '定西市',value: 1.7},
-                    {name: '天水市',value: 2.2},
-                    {name: '兰州市',value: 8.1},
-                    {name: '平凉市',value: 2.9},
-                    {name: '金昌市',value: 2.4},
-                    {name: '嘉峪关市',value: 1.9},
-                    {name: '临夏回族自治州',value: 1.7},
-                    {name: '甘南藏族自治州',value: 2.0}
-                ]
-            }
-        ]
-    };
+    var $areaChart2 = $("#area-chart2");
 
-    $areaChart2.setOption($areaChartOption2);
+    $areaChart2.highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: '各地市当月在线人数'
+        },
+        xAxis: {
+            categories: ['酒泉市','张掖市','武威市','陇南市','庆阳市','白银市','定西市',
+                '天水市','兰州市','平凉市','金昌市','嘉峪关市','临夏','甘南']
+        },
+        yAxis: {
+            min: 1,
+            title: {
+                text: '在线人数 (万人)'
+            }
+        },
+         tooltip: {
+            pointFormat: '{series.name}: <b>{point.y}</b><br/>',
+            valueSuffix: ' 万人',
+            shared: true
+        },
+        legend: {
+            enabled: false
+        },
+        series: [{
+            name: '在线人数',
+            data: [4.9, 5.3, 4.2, 3.9, 5.5, 5.1, 4.1, 4.0, 6.0, 5.1, 4.4, 3.4, 4.0, 6.1]
+
+        }]
+    });
 
 });
