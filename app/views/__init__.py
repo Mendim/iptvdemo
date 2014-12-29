@@ -15,8 +15,6 @@ login_manager.login_message = '请登陆'
 @app.before_request
 def before_request():
     g.user = current_user
-    g.web_title = app.config['WEB_TITLE']
-
 
 @app.route('/')
 def index():
