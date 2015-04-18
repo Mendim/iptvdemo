@@ -13,26 +13,17 @@
 
     </head>
     
-    <body class="skin-blue">
+    <body class="skin-blue sidebar-mini">
+        <div class="wrapper">
 
-        {% include 'base/header.html' with context %}
-
-        <div class="wrapper row-offcanvas row-offcanvas-left">
+            {% include 'base/header.html' with context %}
         
-            {% block leftside %}
+            {% block sidebar %}
             {% endblock %}
 
-            <!-- right-side -->
-            <aside class="right-side">
-
-            {% block rightside %}
+            {% block wrap_content %}
             {% endblock %}
 
-            {% block content %}
-            {% endblock %}
-
-            </aside>
-            <!-- /.right-side -->
         </div>
 
         {% block js %}

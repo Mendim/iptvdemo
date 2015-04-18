@@ -1,9 +1,13 @@
 .zh {
-        font-family: "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-    }
+    font-family: "Segoe UI", Arial, Helvetica, "Microsoft Jhenghei",
+                 "Hiragino Sans GB", "WenQuanYi Zen Hei", "Microsoft Yahei",
+                 SimHei, STHeiti, "WenQuanYi Micro Hei", sans-serif;
+}
 
 .subtitle {
-    font-family: "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    font-family: "Segoe UI", Arial, Helvetica, "Microsoft Jhenghei",
+                 "Hiragino Sans GB", "WenQuanYi Zen Hei", "Microsoft Yahei",
+                 SimHei, STHeiti, "WenQuanYi Micro Hei", sans-serif;
     margin-left: 10px;
 }
 
