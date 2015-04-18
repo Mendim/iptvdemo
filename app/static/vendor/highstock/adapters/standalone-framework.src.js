@@ -1,5 +1,5 @@
 /**
- * @license Highstock JS v2.0.4 (2014-09-02)
+ * @license Highstock JS v2.1.5 (2015-04-13)
  *
  * Standalone Highcharts Framework
  *

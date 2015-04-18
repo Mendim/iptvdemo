@@ -1,15 +1,13 @@
 /*
 * Notify Bar - jQuery plugin
 *
-* Copyright (c) 2009-2014 Dmitri Smirnov
+* Copyright (c) 2009-2015 Dmitri Smirnov
 *
 * Licensed under the MIT license:
 * http://www.opensource.org/licenses/mit-license.php
 *
-* Version: 1.4.1
-*
 * Project home:
-* http://www.whoop.ee/#projects
+* http://www.whoop.ee/posts/2013/04/05/the-resurrection-of-jquery-notify-bar.html
 */
 (function ($) {
 
@@ -23,12 +21,12 @@
 
         settings = $.extend({
             html           : 'Your message here',
-            delay          : 2000,
+            delay          : 3000,
             animationSpeed : 200,
             cssClass       : '',
             jqObject       : '',
             close          : false,
-            closeText      : 'Close [X]',
+            closeText      : '&times;',
             closeOnClick   : true,
             closeOnOver    : false,
             onBeforeShow   : null,
@@ -102,14 +100,12 @@
             default:
                 asTime = settings.animationSpeed;
         }
-        if (typeof bar !== 'object') {
-            $("body").prepend(bar);
-        }
+        $("body").prepend(bar);
         
         // Style close button in CSS file
         if (settings.close) {
             // If close settings is true. Set delay to one billion seconds.
-            // It'a about 31 years - mre than enough for cases when notify bar is used.
+            // It'a about 31 years - mre than enough for cases when notify bar is used :-)
             settings.delay = Math.pow(10, 9);
             bar.append($("<a href='#' class='notify-bar-close'>" + settings.closeText + "</a>"));
             $(".notify-bar-close").click(function (event) {
