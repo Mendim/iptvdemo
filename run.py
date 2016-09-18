@@ -1,4 +1,4 @@
-#!/home/jyyl/env/flask/bin/python3
+#!/Users/lele/env/flask/bin/python3
 #coding: utf-8
 
 from app import app

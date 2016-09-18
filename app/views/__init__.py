@@ -2,7 +2,7 @@
 from app import app
 from app.models import User
 from flask import render_template, redirect, url_for, request, g
-from flask.ext.login import LoginManager, login_user, logout_user, current_user
+from flask_login import LoginManager, login_user, logout_user, current_user
 from .main import mainView
 
 

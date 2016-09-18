@@ -1,6 +1,6 @@
 # coding: utf-8
 from flask import render_template,  Blueprint
-from flask.ext.login import login_required
+from flask_login import login_required
 
 mainView = Blueprint('main', __name__)
 
